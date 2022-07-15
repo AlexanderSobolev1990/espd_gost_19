@@ -774,24 +774,20 @@
  	\else
 		\titleauthor{\@developername}{\@developerrank} 	
  	\fi
-
-%    \if&\@authori\@authorii\@authoriii\@authoriv\@authorv\@authorranki\@authorrankii\@authorrankiii\@authorrankiv\@authorrankv&
     
-%    \if&\@authorname&
-%  		%\wordperformer\\\titleauthor{\@authorname}{\@authorrank}
-%%  		\wordperformer\\\onlyauthor{\@authorname}
-%    \else
-%  		\if&\@authori\@authorii\@authoriii\@authoriv\@authorv\@authorranki\@authorrankii\@authorrankiii\@authorrankiv\@authorrankv&
-%    		\wordperformer\\\onlyauthor{\@authorname}
-%   		\else
-%      		\wordperformers\\\onlyauthor{\@authori}\onlyauthor{\@authorii}\onlyauthor{\@authoriii}\onlyauthor{\@authoriv}\onlyauthor{\@authorv}
-%     	\fi
-%    \fi
+    \if&\@authorname&
+    \else
+  		\if&\@authori\@authorii\@authoriii\@authoriv\@authorv\@authorranki\@authorrankii\@authorrankiii\@authorrankiv\@authorrankv&
+    		\wordperformer\\\onlyauthor{\@authorname}
+   		\else
+      		\wordperformers\\\onlyauthor{\@authori}\onlyauthor{\@authorii}\onlyauthor{\@authoriii}\onlyauthor{\@authoriv}\onlyauthor{\@authorv}
+     	\fi
+    \fi
 
-% 	\if& \@normocontrollername &	
-%	\else
-%		\titleauthor{\@normocontrollername}{\@normocontrollerrank}
-%	\fi
+ 	\if& \@normocontrollername &	
+	\else
+		\titleauthor{\@normocontrollername}{\@normocontrollerrank}
+	\fi
 
 	}
   \end{tabular}
