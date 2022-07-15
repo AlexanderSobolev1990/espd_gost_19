@@ -1,3 +1,12 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \file       espd.cls
+% \brief      Класс ЕСПД (Единая Система Программной Документации)
+% \details    Использованы наработки https://github.com/damoldavskiy/espd
+% \date       18.05.22 - создан
+% \author     Соболев А.А.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{espd}[2019/08/24 GOST 19]
 \RequirePackage{graphicx}
@@ -5,14 +14,39 @@
 \usepackage{array}
 \usepackage{ifthen}
 \usepackage{multirow}
+%\usepackage{enumitem}
+%\usepackage{polyglossia}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Задание перечислений буквами
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{enumitem}
+%
+%\makeatletter
+%\newcommand{\realasbuk}[1]{\expandafter\russian@realalph\csname c@#1\endcsname}
+%
+%\def\russian@realAlph#1{\ifcase#1\or
+%	А\or Б\or В\or Г\or Д\or Е\or Ж\or
+%	З\or И\or К\or Л\or М\or Н\or О\or
+%	П\or Р\or С\or Т\or У\or Ф\or Х\or
+%	Ц\or Ч\or Ш\or Щ\or Э\or Ю\or Я\else\xpg@ill@value{#1}{russian@Alph}\fi}
+%\def\russian@realalph#1{\ifcase#1\or
+%	а\or б\or в\or г\or д\or е\or ж\or
+%	з\or и\or к\or л\or м\or н\or о\or
+%	п\or р\or с\or т\or у\or ф\or х\or
+%	ц\or ч\or ш\or щ\or э\or ю\or я\else\xpg@ill@value{#1}{russian@alph}\fi}
+%
+%\AddEnumerateCounter{\realasbuk}{\russian@realalph}{щ}
+%\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \linespread{1.25}	% Это эквивалент 1,5 интервала в ворде
 
 \clubpenalty=10000  % Это костыль против
 \widowpenalty=10000 % "висячих" строк
 \righthyphenmin=200 % Избавляемся
 \sloppy	            % от переносов слов
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Создает переменную, задается \cmd{val}, возвращается \@cmd
 % \var{cmd}
 \def\var#1{
@@ -32,7 +66,7 @@
       {No \@backslashchar#1 given}
       {You should specify #1 by typing \@backslashchar#1{#1 name} in the preamble}}
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Создает переменную, задается \cmd{val}, возвращается \@cmd (по умолчанию - пустая строка)
 % \var{cmd}
 \def\varempty#1{
@@ -41,19 +75,19 @@
   \expandafter
   \def\csname @#1\endcsname{}
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Пишет в AUX файл данную пару ключ-значение
 % \set{key}{val}
 \def\set#1#2{\write\@auxout{\string\newlabel{#1}{#2}}}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Получает из AUX файла значение по ключу
 % \get{key}
 \def\get#1{\csname r@#1\endcsname}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Получает из AUX файла значение по ключу (по умолчанию 0)
 % \get{key}
 \def\getnum#1{\ifcsname r@#1\endcsname \csname r@#1\endcsname \else 0 \fi}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ПЕРЕМЕННЫЕ И КОНСТАНТЫ
 
 % Размеры шрифта
@@ -66,7 +100,7 @@
 %\newcommand{\tabletextsize}{\fontsize{10pt}{15pt}\selectfont}
 %\newcommand{\footnotesize}{\fontsize{8pt}{12pt}\selectfont}
 %\newcommand{\footnotetextsize}{\fontsize{10pt}{15pt}\selectfont}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FIXED MY VERSION
 \renewcommand{\normalsize}{\fontsize{14pt}{18pt}\selectfont}
 \newcommand{\titlesize}{\fontsize{14pt}{21pt}\selectfont}
@@ -76,16 +110,16 @@
 \newcommand{\attachmentsize}{\fontsize{17pt}{24pt}\selectfont}
 %\newcommand{\tabletextsize}{\fontsize{10pt}{15pt}\selectfont}
 \newcommand{\tabletextsize}{\fontsize{11pt}{15pt}\selectfont}
-
+\newcommand{\listingtextsize}{\fontsize{10pt}{10pt}\selectfont}
 \newcommand{\footnotesize}{\fontsize{8pt}{12pt}\selectfont}
 \newcommand{\footnotetextsize}{\fontsize{10pt}{15pt}\selectfont}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Бумага
 \setlength{\paperwidth}{210mm}
 \setlength{\paperheight}{297mm}
 \setlength{\pdfpagewidth}{\paperwidth}
 \setlength{\pdfpageheight}{\paperheight}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Отступы и размеры
 \setlength{\hoffset}{-25.4mm}
 \setlength{\voffset}{-25.4mm}
@@ -104,7 +138,7 @@
 \setlength{\tabmarg}{2mm}
 \setlength{\tabcolsep}{\tabmarg}
 \raggedbottom
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Константы
 \def\wordagree{Согласовано}
 \def\wordapprove{Утверждаю}
@@ -146,7 +180,7 @@
 \def\wordrefimage{рис.~}
 \def\wordbibliography{Перечень использованных источников}
 \def\wordempty{}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Переменные
 \var{customername} % Заказчик
 \var{customerrank}
@@ -199,7 +233,7 @@
 \varempty{firstapplication}
 \varempty{referencenumber}
 \varempty{emptyvar}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption{exampletask}{
 	\type{Пример оформления документации}
 	\typecode{ПРИМЕР}
@@ -256,24 +290,24 @@
   \type{Пояснительная записка}
   \typecode{81}
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Код документа
 %\def\fullcode{\@organizationcode.\@registrationcode-\@redaction~\@typecode~\@documentnumber-\@partnumber}
 \def\fullcode{\@organizationcode.\@registrationcode-\@redaction~\@typecode~\@documentnumber}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Код документа с постфиксом листа утверждения
 \def\fullcodeapp{\fullcode\wordapprovalpostfix}
 
 % Инициализация параметров
 \ProcessOptions*
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % МАКРОСЫ ДЛЯ ВНУТРЕННЕГО ИСПОЛЬЗОВАНИЯ
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Вставляет место для подписи для исполнителя без проверки на пустоту строк
 \def\onlyauthorraw#1{
 \vskip 1mm\rule{3cm}{0.1pt}~#1\\\vskip 1mm\wordopenquote\rule{8mm}{0.1pt}\wordclosequote~\rule{3cm}{0.1pt} \@year~\wordyear\\\vskip 5mm
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % То же, но делает проверку на пустоту строк
 % \onlyauthor{author}
 \def\onlyauthor#1{
@@ -281,14 +315,13 @@
 		\onlyauthorraw{#1}
 	\fi
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Вставляет должность и место для подписи для исполнителя без проверки на пустоту строк
 % \titleauthorraw{author}{authorrank}
 \def\titleauthorraw#1#2{
 \vskip 1mm #2\\\vskip 1mm\rule{3cm}{0.1pt}~#1\\\vskip 1mm \wordopenquote\rule{8mm}{0.1pt}\wordclosequote~\rule{3cm}{0.1pt} \@year~\wordyear\\\vskip 5mm
-%  \vskip 1mm #2\\\rule{4cm}{0.1pt}/#1/\\\wordopenquote\rule{8mm}{0.1pt}\wordclosequote~\rule{4cm}{0.1pt} \@year~\wordyear\\
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % То же, но делает проверку на пустоту строк
 % \titleauthor{author}{authorrank}
 \def\titleauthor#1#2{
@@ -296,14 +329,14 @@
     \titleauthorraw{#1}{#2}
   \fi
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Модификация перевода строки для использования \centering и \MakeUppercase
 % \protectlinebreak
 \def\protectlinebreak{
   \let\defaultlinebreak\\
   \renewcommand{\\}{\protect\defaultlinebreak}
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Вставляет приложение без нумерации
 % \writeattachmentnotnum{description}{title}{label}
 \def\writeattachmentnonum#1#2#3{
@@ -318,7 +351,7 @@
     \label{#3}
   \fi
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Вставляет приложение с нумерацией
 % \writeattachmentnum{description}{title}{label}
 \def\writeattachmentnum#1#2#3{
@@ -333,7 +366,7 @@
     \label{#3}
   \fi
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Вставляет приложение
 % \attachment{description}{title}[label]
 \def\attachment#1#2{
@@ -350,13 +383,13 @@
     \writeattachmentnum{#1}{#2}{#3}
   \fi
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Создает ячейку заданных размеров с центрованным текстом внутри
 % \def{width}{height}{text}
 \def\cell#1#2#3{
   \parbox[c][#2][c]{#1}{\centering #3}%
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Создает ячейку с центрованным текстом внутри с настраиваемой реальной высотой
 % \def{width}{height}{realheight}{text}
 \def\vcell#1#2#3#4{\parbox[c][#3][b]{#1}{\vbox to #2{\cell{#1}{#2}{#4}\vss}}}
@@ -383,9 +416,9 @@
   \par
   \endgroup
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % СЕКЦИОНИРОВАНИЕ
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Счетчики
 \setcounter{secnumdepth}{4}
 \newcounter{section}
@@ -393,7 +426,7 @@
 \newcounter{paragraph}[subsection]
 \newcounter{subparagraph}[paragraph]
 \newcounter{attachment}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Разделы, подразделы, пункты и подпункты
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
@@ -440,10 +473,10 @@
     \addcontentsline{toc}{subparagraph}{\numsubparagraph~#1}
   \fi
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Аннотация
 \newcommand{\annotation}{\writesection{\wordannotation}}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Перечень терминов
 \newenvironment{terms}
 {
@@ -453,10 +486,9 @@
 {
 }
 \newcommand{\term}[2]{\textbf{#1} -- #2. \par}
-%\newcommand{\term}[2]{{#1} -- #2. \par}
-
 \newcommand{\abbr}[2]{{#1} -- #2. \par}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Перечень сокращений
 \newenvironment{abbreviations}
 {
@@ -465,7 +497,7 @@
 }
 {
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Штампы в разных вариациях по ГОСТ19
 \newcommand{\stampleftfull}{
 	\setlength{\arrayrulewidth}{0.5mm}
@@ -551,7 +583,7 @@
 	\end{tabular}
 	\setlength{\tabcolsep}{\tabmarg}
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Лист регистрации изменений
 \newcommand{\registration}{
 	\newpage
@@ -677,7 +709,7 @@
 	\end{tabular}
 	}	
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Штамп для учета - оригинал
 %\newcommand{\stampleftfull}{
 %  \tabletextsize
@@ -696,7 +728,7 @@
 %  \end{tabular}
 %  \setlength{\tabcolsep}{\tabmarg}
 %}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Окружение для страниц информационной части
 \newenvironment{titlepage}
 {
@@ -710,7 +742,7 @@
   \setlength{\tabcolsep}{\tabmarg}
   \renewcommand{\baselinestretch}{1}\selectfont
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Лист утверждения
 \newcommand{\makeapproval}{
 \begin{titlepage}
@@ -796,7 +828,7 @@
   \vskip 5mm
 \end{titlepage}
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Титульный лист
 \newcommand{\maketitle}{
 \begin{titlepage}
@@ -824,7 +856,7 @@
 \end{titlepage}
 \stepcounter{page}
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Содержание
 \newcommand\@pnumwidth{1em}
 \newcommand\@tocrmarg{4em}
@@ -839,15 +871,15 @@
 %\newcommand\l@subsection{\@dottedtocline{2}{0.5cm}{1cm}}
 %\newcommand\l@paragraph{\@dottedtocline{3}{1cm}{1.5cm}}
 %\newcommand\l@subparagraph{\@dottedtocline{4}{1.5cm}{2cm}}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\l@section[1]{\@dottedtocline{1}{0cm}{1cm}{#1}}
 \newcommand\l@subsection{\@dottedtocline{2}{1cm}{2cm}}
 \newcommand\l@paragraph{\@dottedtocline{3}{2cm}{3cm}}
 \newcommand\l@subparagraph{\@dottedtocline{4}{3cm}{4cm}}
 \newcommand\l@attachment{\@dottedtocline{1}{0cm}{3cm}}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ВСТАВЛЯЕМЫЙ КОНТЕНТ
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Иллюстрация
 % \illustration[title][description][scale]{file}[label]
 \def\illustration{
@@ -901,7 +933,7 @@
 }
 \newcounter{illustration}
 \renewcommand{\theillustration}{\wordrefimage\arabic{illustration}}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Картинка
 % \image[scale]{file}
 \newcommand{\image}[2][1]{
@@ -912,23 +944,29 @@
   \vspace{6mm}
   \par
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % РАЗНОЕ
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Сноски
 \renewcommand{\footnoterule}{\rule{3cm}{0.1pt}\vskip 2mm}
 \def\@makefnmark{\@textsuperscript{\footnotesize\@thefnmark)}}
 \def\@makefntext#1{\hskip 1cm\@makefnmark\footnotetextsize#1}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Перечисления
-\def\theenumi{\arabic{enumi}}
-\def\p@enumi{\theenumi}
-\def\labelenumi{\theenumi)}
-\setlength{\labelsep}{5mm}
-\setlength{\labelwidth}{-\parindent}
-\addtolength{\labelwidth}{-\labelsep}
-\addtolength{\labelwidth}{-4mm}
-
+%\def\theenumi{\arabic{enumi}}
+%\def\p@enumi{\theenumi}
+%\def\labelenumi{\theenumi)}
+%
+%%\def\theenumii{\asbuk{enumi}} 
+%%\def\p@enumi{\theenumi}
+%%\def\labelenumi{\theenumi)}
+%
+%
+%\setlength{\labelsep}{5mm}
+%\setlength{\labelwidth}{-\parindent}
+%\addtolength{\labelwidth}{-\labelsep}
+%\addtolength{\labelwidth}{-4mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Библиография
 \def\url{\texttt}
 \newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
@@ -948,10 +986,10 @@
   \endlist
   \addcontentsline{toc}{attachment}{\wordbibliography}
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Вставка листа утверждения и титульного листа
 \AtBeginDocument{\makeapproval\maketitle}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Вставка листа о регистрации изменений и указателей на последние элементы
 \AtEndDocument{
   \registration
@@ -959,7 +997,7 @@
   \set{lastattachment}{\arabic{attachment}}
   \set{lastillustration}{\arabic{illustration}}
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Колонтитулы и нумерация
 \def\ps@default{
   \def\@oddhead{%
@@ -974,6 +1012,5 @@
   \let\@evenhead\@oddhead
   \let\@evenfoot\@oddfoot
 }
-
 \pagestyle{default}
 \pagenumbering{arabic}
