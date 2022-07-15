@@ -1,0 +1,76 @@
+\documentclass[exampletask]{espd}
+\usepackage[russian]{babel}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{fontspec}
+%\usepackage{cite}
+
+\bibliographystyle{gost2008}
+\setmainfont{Times New Roman}
+
+% Задание полей титульных страниц
+
+\firstapplication{АБВГД.12345} % Первое применение
+\referencenumber{АБВГД.12345} % Справ №
+
+\organizationcode{01234} % Код организации
+\registrationcode{56789} % Регистрационный код
+\redaction{01} % Номер редакции
+\documentnumber{03} % Номер документа данного вида
+%\partnumber{1} % Номер части документа - чтобы задать - надо фиксить класс espd
+
+% СОГЛАСОВАНО
+\customerrank{Начальник\\межгалактической комиссии}
+\customername{А.Б.~Заказчиков}
+
+% УТВЕРЖДАЮ
+\chiefconstructorrank{Главный конструктор\\изделия АБВГД.12345}
+\chiefconstructorname{А.Б.~Главный}
+
+\fromcustomerrank{От межгалактической комиссии}
+\fromcustomername{А.Б.~Галактионов}
+
+\headofdepartmentrank{Начальник Центра}
+\headofdepartmentname{А.Б.~Чатланин}
+
+\deputyofchiefconstructorrank{Зам.~гл.~конструктора}
+\deputyofchiefconstructorname{А.Б.~Заместителев}
+%
+\developerrank{Разработчик}
+\developername{А.Б.~Разработчиков}
+
+%\headoflaboratoryrank{Начальник лаборатории 777}
+%\headoflaboratoryname{А.Б.~Лабораториев}
+
+% Исполнитель(и)
+%\authorname{А.Б.~Пацак}
+%%
+%\authori{А.Б.~Пацак1}
+%\authorii{А.Б.~Пацак2}
+
+\normocontrollerrank{Нормоконтроллер}
+\normocontrollername{~}
+
+\title{Изделие АБВГД.12345\\Программный комплекс\\Галактический транклюкатор} %\wordopenquote \wordclosequote
+\year{2022}
+
+% Начало документа
+
+\begin{document}
+\clubpenalty=10000  % Это костыль против
+\widowpenalty=10000 % "висячих" строк
+\righthyphenmin=200 % Избавляемся
+\sloppy	            % от переносов слов
+
+\include{annotation} % Аннотация
+\tableofcontents % Содержание
+% Дальше пошли разделы
+\include{all2} 
+%\include{section_1} 
+%\include{section_2} 
+\bibliography{lit2} % Список литературы
+\include{terms} % Список терминов
+\include{abbreviations} % Список сокращений
+\include{attachment}
+\end{document}
