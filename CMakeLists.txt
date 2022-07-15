@@ -7,12 +7,14 @@ SET(LATEX_DEFAULT_BUILD pdf)
 INCLUDE(UseLATEX.cmake)
 SET(parts
     espd.cls
-    section_1.tex        
-    notepad.png
+    annotation.tex
+    all2.tex
+#    section_1.tex        
+#    notepad.png
 )
 ADD_LATEX_DOCUMENT(
     main.tex
-    BIBFILES lit.bib
+    BIBFILES lit2.bib
     INPUTS ${parts}    
 )
 add_custom_command(

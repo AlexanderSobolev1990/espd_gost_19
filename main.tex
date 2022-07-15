@@ -1,18 +1,25 @@
 \documentclass[exampletask]{espd}
 \usepackage[russian]{babel}
-\usepackage{multirow}
 \usepackage{array}
 \usepackage{setspace}
 \usepackage{fontspec}
-%\usepackage{cite}
+\usepackage{cite}
+%\usepackage{amsmath}
+\usepackage{gensymb} % Для знака градуса
+\usepackage{mathtools}
 
 \bibliographystyle{gost2008}
 \setmainfont{Times New Roman}
 
-% Задание полей титульных страниц
+\newcommand{\sdash}{\nobreakdash-}  % Дефис неразрывный без пробелов до и после
+\newcommand{\ndash}{\nobreakdash~--~}  % Короткое тире неразрывное с пробелами до и после
+\newcommand{\mdash}{\nobreakdash~---~} % Длинное тире неразрывное с пробелами до и после
 
-\firstapplication{АБВГД.12345} % Первое применение
-\referencenumber{АБВГД.12345} % Справ №
+% Задание полей титульных страниц
+\newcommand{\productcipher}{АБВГД.12345} % Шифр изделия
+
+\firstapplication{\productcipher} % Первое применение
+\referencenumber{\productcipher} % Справ №
 
 \organizationcode{01234} % Код организации
 \registrationcode{56789} % Регистрационный код
@@ -25,7 +32,7 @@
 \customername{А.Б.~Заказчиков}
 
 % УТВЕРЖДАЮ
-\chiefconstructorrank{Главный конструктор\\изделия АБВГД.12345}
+\chiefconstructorrank{Главный конструктор\\изделия \productcipher}
 \chiefconstructorname{А.Б.~Главный}
 
 \fromcustomerrank{От межгалактической комиссии}
@@ -52,7 +59,7 @@
 \normocontrollerrank{Нормоконтроллер}
 \normocontrollername{~}
 
-\title{Изделие АБВГД.12345\\Программный комплекс\\Галактический транклюкатор} %\wordopenquote \wordclosequote
+\title{Изделие \productcipher\\Программный комплекс\\Галактический транклюкатор} 
 \year{2022}
 
 % Начало документа
@@ -61,7 +68,7 @@
 \clubpenalty=10000  % Это костыль против
 \widowpenalty=10000 % "висячих" строк
 \righthyphenmin=200 % Избавляемся
-\sloppy	            % от переносов слов
+{\sloppy	            % от переносов слов
 
 \include{annotation} % Аннотация
 \tableofcontents % Содержание
@@ -73,4 +80,5 @@
 \include{terms} % Список терминов
 \include{abbreviations} % Список сокращений
 \include{attachment}
+}
 \end{document}
