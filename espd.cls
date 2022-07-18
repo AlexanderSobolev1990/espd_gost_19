@@ -9,13 +9,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{espd}[2019/08/24 GOST 19]
-\RequirePackage{graphicx}
+%\RequirePackage{graphicx}
+\usepackage{graphicx}
+%\usepackage{caption}
+
 \usepackage{ctable}
 \usepackage{array}
 \usepackage{ifthen}
 \usepackage{multirow}
-%\usepackage{enumitem}
-%\usepackage{polyglossia}
+\usepackage{longtable} % Для таблиц, длиннее 1 страницы
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Задание перечислений буквами
@@ -109,7 +111,7 @@
 \newcommand{\subsectionsize}{\fontsize{14pt}{16pt}\selectfont}
 \newcommand{\attachmentsize}{\fontsize{17pt}{24pt}\selectfont}
 %\newcommand{\tabletextsize}{\fontsize{10pt}{15pt}\selectfont}
-\newcommand{\tabletextsize}{\fontsize{11pt}{15pt}\selectfont}
+\newcommand{\tabletextsize}{\fontsize{12pt}{15pt}\selectfont}
 \newcommand{\listingtextsize}{\fontsize{10pt}{10pt}\selectfont}
 \newcommand{\footnotesize}{\fontsize{8pt}{12pt}\selectfont}
 \newcommand{\footnotetextsize}{\fontsize{10pt}{15pt}\selectfont}
@@ -937,13 +939,34 @@
 % Картинка
 % \image[scale]{file}
 \newcommand{\image}[2][1]{
-  \vspace{6mm}
+  \vspace{5mm}
   \begin{center}
-    \includegraphics[width=#1\textwidth]{#2}
+    \includegraphics[width=#1\textwidth]{#2}	
+    
   \end{center}
-  \vspace{6mm}
+  \vspace{5mm}
   \par
 }
+%\newcommand{\image}[3][2][1]{
+%	\vspace{5mm}
+%	\begin{center}
+%		\includegraphics[width=#1\textwidth]{#2}
+%		\caption{#3}
+%	\end{center}
+%	\vspace{5mm}
+%	\par
+%}
+%\newcommand{\image}[2][3][1]{
+%\begin{figure}
+%	\vspace{5mm}
+%	\begin{center}
+%		\includegraphics[width=#1\textwidth]{#2}
+%		\caption{#3}
+%	\end{center}
+%	\vspace{5mm}
+%	\par
+%\end{figure}
+%}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % РАЗНОЕ
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -953,19 +976,21 @@
 \def\@makefntext#1{\hskip 1cm\@makefnmark\footnotetextsize#1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Перечисления
-%\def\theenumi{\arabic{enumi}}
-%\def\p@enumi{\theenumi}
-%\def\labelenumi{\theenumi)}
+\def\theenumi{\arabic{enumi}}
+\def\p@enumi{\theenumi \leftmargini}
+\def\labelenumi{\theenumi)}
 %
-%%\def\theenumii{\asbuk{enumi}} 
-%%\def\p@enumi{\theenumi}
-%%\def\labelenumi{\theenumi)}
+\def\theenumii{$-$}
+\def\p@enumii{\theenumii \leftmarginii}
+\def\labelenumii{\theenumii}
 %
+\setlength{\labelsep}{5mm}
+\setlength{\labelwidth}{-\parindent}
+\addtolength{\labelwidth}{-\labelsep}
+\addtolength{\labelwidth}{-4mm}
 %
-%\setlength{\labelsep}{5mm}
-%\setlength{\labelwidth}{-\parindent}
-%\addtolength{\labelwidth}{-\labelsep}
-%\addtolength{\labelwidth}{-4mm}
+\def\@listi {\leftmargin 0mm}
+\def\@listii {\leftmargin 10mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Библиография
 \def\url{\texttt}

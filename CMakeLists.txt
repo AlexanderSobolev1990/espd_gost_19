@@ -6,17 +6,24 @@ SET(LATEX_DEFAULT_BUILD pdf)
 #SET(LATEX_OUTPUT_PATH build)
 INCLUDE(UseLATEX.cmake)
 SET(parts
-    espd.cls
-    annotation.tex
-    all2.tex
-#    section_1.tex        
-#    notepad.png
+    espd.cls # Класс настроек ЕСПД
+    аннотация.tex
+    оформление_разделов.tex
+    оформление_перечислений.tex
+    оформление_иллюстраций.tex
+    оформление_формул.tex
+    оформление_таблиц.tex
+    термины.tex
+    аббревиатуры.tex
+    приложение.tex
 )
 ADD_LATEX_DOCUMENT(
     main.tex
-    BIBFILES lit2.bib
+    BIBFILES список_литературы.bib
+    IMAGE_DIRS ./иллюстрации/
     INPUTS ${parts}    
 )
+# Команда копирует результирующий файл main.pdf в папку /output с переименованием
 add_custom_command(
         TARGET main
         COMMAND ${CMAKE_COMMAND} -E copy

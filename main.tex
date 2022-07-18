@@ -18,6 +18,15 @@
 \usepackage{listings} % Для листингов исходного кода
 \usepackage{color}
 
+%\usepackage{graphicx}
+%\usepackage{caption}
+%\usepackage{float}
+%\usepackage{ccaption}
+
+%\usepackage{xltxtra}
+%\graphicspath{ {/иллюстрации/} }
+\graphicspath{ {./иллюстрации/} }
+
 \bibliographystyle{gost2008}
 \setmainfont{Times New Roman}
 
@@ -159,15 +168,17 @@
 \righthyphenmin=200 % Избавляемся
 {\sloppy	            % от переносов слов
 
-\include{annotation} % Аннотация
+\include{аннотация}
 \tableofcontents % Содержание
 % Дальше пошли разделы
-%\include{all2} 
-\include{section_1} 
-%\include{section_2} 
-\bibliography{lit} % Список литературы
-\include{terms} % Список терминов
-\include{abbreviations} % Список сокращений
-\include{attachment}
+\include{оформление_разделов} 
+\include{оформление_перечислений} 
+\include{оформление_иллюстраций} 
+\include{оформление_формул} 
+\include{оформление_таблиц} 
+\bibliography{список_литературы}
+\include{термины}
+\include{аббревиатуры}
+%\include{приложение}
 }
 \end{document}
