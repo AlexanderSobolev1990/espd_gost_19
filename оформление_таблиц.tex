@@ -4,32 +4,49 @@
 
 Оформление всегда следует вести при помощи класса \lstinline|longtable|, поскольку это дает возможность переноса длинной таблицы на следующую страницу.
 
-\begin{longtable}{|wc{55mm}|wc{55mm}|wc{55mm}|}
-	%----------------------- преамбула ---------------------
+%\captionsetup[table]{skip=0pt,singlelinecheck=off}
+%\LTcapwidth=\textwidth
+%\setlength{\LTleft}{0pt}
+\begin{longtable}{| >{\raggedright}m{55mm} | wc{55mm} | >{\raggedleft}m{55mm} |}
+%	\caption{\mbox{\raggedright Пример организации длинной таблицы}} \\
 	\caption{Пример организации длинной таблицы}
-	\label{t-LongTable}
-	\\% \toprule
+	\label{t:tab1} \\
 	\hline
-	Колонка 1 & Колонка 2 & Колонка 3 \\ 
+	колонка 1 очень  длинный заголовок колонки & 1-я строка & колонка 2 \tabularnewline
 	\hline
-	\endfirsthead % Конец заголовка на 1 странице
-	\multicolumn{3}{r}{\tabletextsize продолжение табл.\thetable} \\ \hline
-	Колонка 1 & Колонка 2 & Колонка 3 \\ \hline
-	\endhead
-	\hline
-	\multicolumn{3}{r}{\tabletextsize см. далее}
-	\endfoot
-	\hline
-	\endlastfoot
-	%------------------- табличные данные ------------------
-	текст первой ячейки больше длины колонки & 2 & 3 \\
-	\hline
-	1 & 2 & 3 \\
-	\hline
-	1 & 2 & 3 \\
-	\hline
-	1 & 2 & 3 \\
-
-	\newpage % Перенос на новую страницу
-	4 & 5 & 6 \\
+	колонка \\ 1 & 2-я строка & колонка 3 2-я строка
+	\tabularnewline\hline
 \end{longtable}
+
+Пример оформления ссылки на таблицу: см. \ref{t:tab1}.
+
+%\begin{longtable}{|wc{55mm}|wc{55mm}|wc{55mm}|}
+%	%----------------------- преамбула ---------------------
+%	\caption{Пример организации длинной таблицы}
+%	\label{t-LongTable}
+%	\\% \toprule
+%	\hline
+%	Колонка 1 & Колонка 2 & Колонка 3 \tabularnewline 
+%	\hline
+%	\endfirsthead % Конец заголовка на 1 странице
+%	\multicolumn{3}{r}{\tabletextsize продолжение табл.\thetable} \\ \hline
+%	Колонка 1 & Колонка 2 & Колонка 3 \tabularnewline
+%	\hline
+%	\endhead
+%	\hline
+%	\multicolumn{3}{r}{\tabletextsize см. далее}
+%	\endfoot
+%	\hline
+%	\endlastfoot
+%	%------------------- табличные данные ------------------
+%	текст первой ячейки \\больше длины колонки & 2 & 3 \\
+%	\hline
+%	1 & 2 & 3 \\
+%	\hline
+%	1 & 2 & 3 \\
+%	\hline
+%	1 & 2 & 3 \\
+%
+%	\newpage % Перенос на новую страницу
+%	4 & 5 & 6 \\
+%\end{longtable}

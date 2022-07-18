@@ -112,6 +112,7 @@
 \newcommand{\attachmentsize}{\fontsize{17pt}{24pt}\selectfont}
 %\newcommand{\tabletextsize}{\fontsize{10pt}{15pt}\selectfont}
 \newcommand{\tabletextsize}{\fontsize{12pt}{15pt}\selectfont}
+\newcommand{\picturetextsize}{\fontsize{12pt}{15pt}\selectfont}
 \newcommand{\listingtextsize}{\fontsize{10pt}{10pt}\selectfont}
 \newcommand{\footnotesize}{\fontsize{8pt}{12pt}\selectfont}
 \newcommand{\footnotetextsize}{\fontsize{10pt}{15pt}\selectfont}
@@ -131,7 +132,7 @@
 \setlength{\textwidth}{175mm}
 \setlength{\topmargin}{7.5mm}
 \setlength{\textheight}{257mm}
-\setlength{\parindent}{10mm}
+\setlength{\parindent}{10mm} % Абзацный отступ
 \setlength{\parskip}{2mm}
 \setlength{\headheight}{10mm}
 \setlength{\headsep}{7.5mm}
@@ -447,7 +448,7 @@
       {According to GOST 19.106-78, section title can not be empty}
   \fi
   \refstepcounter{section}
-  \writesection{\numsection~#1}
+  \writesection{\numsection~#1}  
   \addcontentsline{toc}{section}{\numsection~#1}
 }
 \newcommand{\subsection}[1]{
@@ -461,12 +462,12 @@
   \writesubsection{\numsubsection~#1}
   \addcontentsline{toc}{subsection}{\numsubsection~#1}
 }
-\newcommand{\paragraph}[1]{
+\newcommand{\paragraph}[1]{  
   \refstepcounter{paragraph}
   \writesubsection{\numparagraph~#1}
   \ifx&#1&\else
     \addcontentsline{toc}{paragraph}{\numparagraph~#1}
-  \fi
+  \fi  
 }
 \newcommand{\subparagraph}[1]{
   \refstepcounter{subparagraph}
@@ -884,54 +885,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Иллюстрация
 % \illustration[title][description][scale]{file}[label]
-\def\illustration{
-  \@ifnextchar[
-    {\illustration@i}
-    {\illustration@i[]}
-}
-
-\def\illustration@i[#1]{
-  \@ifnextchar[
-    {\illustration@ii[#1]}
-    {\illustration@ii[#1][]}
-}
-
-\def\illustration@ii[#1][#2]{
-  \@ifnextchar[
-    {\illustration@iii[#1][#2]}
-    {\illustration@iii[#1][#2][0.8]}
-}
-
-\def\illustration@iii[#1][#2][#3]#4{
-  \@ifnextchar[
-    {\illustration@iv[#1][#2][#3]#4}
-    {\illustration@iv[#1][#2][#3]#4[]}
-}
-
-\def\illustration@iv[#1][#2][#3]#4[#5]{
+\def\illustration[#1][#2][#3]#4[#5]{
   \refstepcounter{illustration}
-  \vspace{6mm}
+  \vspace{2mm}
   \begin{center}
     \ifx&#1&\else
       #1 \nopagebreak \\
-    \fi
-    \vspace{4mm}
+      \vspace{2mm}
+    \fi    
     \includegraphics[width=#3\textwidth]{#4} \nopagebreak
-    \ifx&#2&\else
-      \\\vspace{4mm}
-      \parbox{#3\textwidth}{\centering#2} \nopagebreak
-    \fi
-    \\\vspace{4mm}
+    \\\vspace{2mm}
     \ifnum\getnum{lastillustration}=1
+	    \picturetextsize\centering{#2}
     \else
-      \wordimage~\arabic{illustration}.
+      \picturetextsize\centering{\wordimage~\arabic{illustration}.~{#2}}
     \fi
     \ifx&#5&\else
-      \label{#5}
+      \label{img:#5}
     \fi
   \end{center}
-  \vspace{6mm}
-  \par
+  \vspace{2mm}
+  \par % конец параграфа
 }
 \newcounter{illustration}
 \renewcommand{\theillustration}{\wordrefimage\arabic{illustration}}
@@ -941,32 +915,11 @@
 \newcommand{\image}[2][1]{
   \vspace{5mm}
   \begin{center}
-    \includegraphics[width=#1\textwidth]{#2}	
-    
+    \includegraphics[width=#1\textwidth]{#2}	    
   \end{center}
   \vspace{5mm}
   \par
 }
-%\newcommand{\image}[3][2][1]{
-%	\vspace{5mm}
-%	\begin{center}
-%		\includegraphics[width=#1\textwidth]{#2}
-%		\caption{#3}
-%	\end{center}
-%	\vspace{5mm}
-%	\par
-%}
-%\newcommand{\image}[2][3][1]{
-%\begin{figure}
-%	\vspace{5mm}
-%	\begin{center}
-%		\includegraphics[width=#1\textwidth]{#2}
-%		\caption{#3}
-%	\end{center}
-%	\vspace{5mm}
-%	\par
-%\end{figure}
-%}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % РАЗНОЕ
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1039,3 +992,11 @@
 }
 \pagestyle{default}
 \pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Команды отмены отступов (используется при вставке формул)
+\newcommand{\zerodisplayskips}{%
+	\setlength{\abovedisplayskip}{0pt}%
+	\setlength{\belowdisplayskip}{0pt}%
+	\setlength{\abovedisplayshortskip}{0pt}%
+	\setlength{\belowdisplayshortskip}{0pt}%
+}%
