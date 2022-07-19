@@ -1,2 +1,11 @@
-# espd
-LaTeX class for writing software documentation in accordance with the GOST 19 (Unified software documentation system, ESPD).
+# Шаблон ЕСПД ГОСТ 19 #
+
+## 1. Обзор ##
+Позволяет создавать программную документацию по ЕСПД ГОСТ 19.
+
+## 2. Ссылки ##
+
+
+
+
+
