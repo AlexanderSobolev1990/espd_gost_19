@@ -1,4 +1,4 @@
-\section{Оформление таблиц}
+\newpage\section{Оформление таблиц}
 
 В данном разделе приводится пример иерархии вложенности по п.~2.6 ГОСТ~19.106 \cite{gost19106}.
 
@@ -7,10 +7,10 @@
 \subsection{Простая маленькая таблица}
 
 Простой пример маленькой таблицы c маленькими колонками, выровненными по центру, без каких-либо переполнений.
-
+{\tabletextsize
 % Всегда вставлять параметр [с] после longtable - выравнивание по центру страницы
 \begin{longtable}[c]{| >{\centering}m{25mm} | >{\centering}m{25mm} | >{\centering}m{50mm} |}
-	\caption{Пример маленькой таблицы\hspace{25cm}} % \hspace{25cm} - хак, для того чтобы было выровнено по левому краю, иначе без головной боли не получилось
+	\caption{\normalsize Пример маленькой таблицы\hspace{25cm}} % \hspace{25cm} - хак, для того чтобы было выровнено по левому краю, иначе без головной боли не получилось
 	\label{t:tab0} \\		
 	\hline % горизонтальная линия
 	колонка 1 & колонка 2 & колонка 3 \tabularnewline
@@ -18,13 +18,14 @@
 	111 & 222 & 333
 	\tabularnewline\hline % горизонтальная линия
 \end{longtable}
+}
 
 \subsection{Широкая таблица с длинными заголовками колонок}
 
 Пример таблицы с длинными заголовками колонок
-
+{\tabletextsize
 \begin{longtable}[c]{| >{\raggedright}m{55mm} | >{\centering}m{55mm} | >{\raggedleft}m{55mm} |}
-	\caption{Пример таблицы c возможно очень длинным заголовком, который будет перенесен на вторую строчку\hspace{25cm}} % \hspace{25cm} - хак, для того чтобы было выровнено по левому краю, иначе без головной боли не получилось
+	\caption{\normalsize Пример таблицы c возможно очень длинным заголовком, который будет перенесен на вторую строчку\hspace{25cm}} % \hspace{25cm} - хак, для того чтобы было выровнено по левому краю, иначе без головной боли не получилось
 	\label{t:tab1} \\		
 	\hline % горизонтальная линия
 	колонка 1 с очень длинным заголовком, просто капец каким длинным & колонка 2 по центру & колонка 3 по правому краю \tabularnewline
@@ -32,28 +33,41 @@
 	Содержание колонки 1 & Содержание колонки 2 & Содержание колонки 3, возможно очень длинное содержание, которое нормально отображается с переносом по словам
 	\tabularnewline\hline % горизонтальная линия
 \end{longtable}
+}
 
-Пример оформления ссылки на таблицу: см.~табл.~\ref{t:tab1}.
+Пример оформления ссылки на таблицу: см.~таблицу~\ref{t:tab1}.
 
 \newpage
 \subsection{Часто встречающая в документации таблица}
 
 Пример таблицы, часто встречающийся в программной документации:
 
-\begin{longtable}[c]{| >{\centering}m{15mm} | >{\raggedright}m{50mm} | >{\raggedright}m{20mm} | >{\centering}m{20mm} | >{\raggedright}m{30mm} | >{\centering}m{18mm} |}
+{\tabletextsize
+\begin{longtable}[c]{| >{\centering}m{12mm} | >{\raggedright}m{53mm} | >{\centering}m{20mm} | >{\centering}m{20mm} | >{\raggedright}m{30mm} | >{\centering}m{18mm} |}
 	%----------------------- преамбула ---------------------	
-	\caption{Пример таблицы\hspace{25cm}}
+	\caption{\normalsize Пример таблицы\hspace{25cm}}
 	\label{t:tab2} \\
 	\hline
-	Номер слова & Наименование информации & Усл.~об. & Размерн. & Пределы изменения & Примеч. \tabularnewline
-%	\hline
+	\multicolumn{1}{| >{\centering}m{12mm} |}{Номер слова} & 
+	\multicolumn{1}{| >{\centering}m{53mm} |}{Наименование информации} & 
+	\multicolumn{1}{| >{\centering}m{20mm} |}{Усл.~об.} & 
+	\multicolumn{1}{| >{\centering}m{20mm} |}{Размерн.} & 
+	\multicolumn{1}{| >{\centering}m{30mm} |}{Пределы изменения} & 
+	\multicolumn{1}{| >{\centering}m{18mm} |}{Примеч.} \tabularnewline
 	\hhline{|=|=|=|=|=|=|}
 	\endfirsthead % Конец заголовка на 1 странице
-%	\hline
-	\multicolumn{6}{r}{\tabletextsize продолжение табл.\thetable} \\ 
+	\multicolumn{6}{l}{Продолжение таблицы \thetable} \\ % 6 - число колонок, по-другому не получается
 	\hline
-	Номер слова & Наименование информации & Усл.~об. & Размерн. & Пределы изменения & Примеч. \tabularnewline
-%	\hline
+	% Простой способ
+%	Номер слова & Наименование информации & Усл.~об. & Размерн. & Пределы изменения & Примеч. \tabularnewline
+	%
+	% Способ, при котором раздельно формуруется выравнивание заголовка и контетнта
+	\multicolumn{1}{| >{\centering}m{12mm} |}{Номер слова} & 
+	\multicolumn{1}{| >{\centering}m{53mm} |}{Наименование информации} & 
+	\multicolumn{1}{| >{\centering}m{20mm} |}{Усл.~об.} & 
+	\multicolumn{1}{| >{\centering}m{20mm} |}{Размерн.} & 
+	\multicolumn{1}{| >{\centering}m{30mm} |}{Пределы изменения} & 
+	\multicolumn{1}{| >{\centering}m{18mm} |}{Примеч.} \tabularnewline
 	\hhline{|=|=|=|=|=|=|}
 	\endhead
 	\hline
@@ -86,6 +100,21 @@
 	18 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline	
 	19 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline	
 	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline		
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
+	20 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
 \end{longtable}
+}
 
-Пример оформления ссылки на таблицу: см.~табл.~\ref{t:tab2}.
+Пример оформления ссылки на таблицу: см.~таблицу~\ref{t:tab2}.

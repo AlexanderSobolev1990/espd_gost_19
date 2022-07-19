@@ -8,8 +8,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[exampletask]{espd}
 %\usepackage[russian]{babel} % polyglossia
-%\usepackage{caption}
-%\usepackage{array}
 \usepackage{setspace}
 \usepackage{fontspec}
 \usepackage{cite} % Для цитирования
@@ -20,12 +18,6 @@
 \usepackage{hhline} % Для двойной линии отчерка в заголовках таблиц
 \usepackage{color} % Цвет для листингов
 
-
-%\usepackage{graphicx}
-%\usepackage{float}
-%\usepackage{ccaption}
-
-%\usepackage{xltxtra}
 \graphicspath{ {./иллюстрации/} }
 
 \bibliographystyle{gost2008}
@@ -54,12 +46,14 @@
 	belowskip=3mm,
 	showstringspaces=false,
 	columns=flexible,
-	basicstyle=\listingtextsize\fontspec{Courier New},
+	basicstyle=\listingtextsize\fontspec{Noto Sans Mono},%{Courier New},
 	extendedchars=true, % без символа \ !!! - так поддерживается русский язык в комментариях
 	inputencoding=utf8x,
 %    escapechar=|,
-	numbers=none,
-	numberstyle=\tiny\color{mauve},
+	numbers=left,
+%	numberstyle=\tiny,
+%	stepnumber=1,
+%	numberstyle=\tiny\color{mauve},
 	keywordstyle=\color{blue},
 	commentstyle=\color{dkgreen},
 	stringstyle=\color{mauve},
@@ -175,15 +169,18 @@
 
 \include{аннотация}
 \tableofcontents % Содержание
-% Дальше пошли разделы
+%
+%% Дальше пошли разделы
 \include{оформление_разделов} 
 \include{оформление_перечислений} 
 \include{оформление_иллюстраций} 
 \include{оформление_формул} 
 \include{оформление_таблиц} 
+\include{оформление_листингов}
 \bibliography{список_литературы}
 \include{термины}
 \include{аббревиатуры}
-\include{приложение}
+\include{приложение_1}
+\include{приложение_2}
 }
 \end{document}

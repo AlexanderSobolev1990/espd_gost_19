@@ -1,49 +1,7 @@
-\annotation
+\newpage\annotation
 
 Данный документ является примером оформления текста с использованием системы верстки (La)\TeX. Ссылка: \url{https://en.wikipedia.org/wiki/LaTeX}. Отличительной чертой проекта, намного повышающей удобство использования, является использование файла UseLatex.cmake, который позволяет легко и просто собирать исходные тексты из *.tex файлов путем написания соответствующего CMakeLists.txt (пример имеется в директории проекта) и вызова процесса сборки стандартным способом: \lstinline|mkdir build && cd build && cmake .. && make|.
 
 Доработанный класс espd.cls позволяет легко и просто оформлять титульную страницу и лист утверждения по ГОСТ-19, а также включает все необходимое оформление. Таким образом, использование данного класса и языка разметки (La)\TeX~позволяет техническому писателю сконцентрироваться на главном\mdash написании текста. Оформление формул, таблиц, вставка рисунков также значительно упрощаются, исключается их <<съезжание>>, как часто случается при исползовании текстового редактора Word, особенно разных версий.
 
 Далее изложены наиболее часто встречающиеся конструкции, необходимые для написания текста технического задания и остальной документации по ГОСТ\sdash 19.
-
-%\begin{lstlisting}
-%namespace SPML /// Специальная библиотека программных модулей (СБ ПМ)
-%{
-%namespace Compare /// Сравнение чисел
-%{
-%static const float EPS_F = 1.0e-4f; ///< Абсолютная точность по умолчанию при сравнениях чисел типа float (1.0e-4)
-%static const double EPS_D = 1.0e-8; ///< Абсолютная точность по умолчанию при сравнениях чисел типа double (1.0e-8)
-%static const float EPS_REL = 0.01; ///< Относительная точность по умолчанию
-%
-%///
-%/// \brief Сравнение двух действительных чисел (по абсолютной разнице)
-%/// \details Возвращает результат: abs( first - second ) < eps
-%/// \param[in] first  - первое число
-%/// \param[in] second - второе число
-%/// \param[in] eps - абсолютная точность сравнения
-%/// \return true - если разница меньше точности, иначе false
-%///
-%inline bool AreEqualAbs( float first, float second, const float &eps = EPS_F )
-%{
-%return ( std::abs( first - second ) <= eps );
-%}
-%
-%BOOST_AUTO_TEST_CASE( test_mat_1_seqextr_min )
-%{
-%int size = mat_1_dense.n_cols;
-%arma::ivec actual = arma::ivec( size, arma::fill::zeros );
-%double infValue = 1e7;//mat_1_dense.max();
-%double resolution = 1e-7;
-%double lapcost;
-%SPML::LAP::SequentalExtremum( mat_1_dense, SPML::LAP::TSearchParam::SP_Min, infValue, resolution, actual, lapcost );
-%double eps = 1e-7;
-%BOOST_CHECK_EQUAL( arma::approx_equal( actual, expected_1_subextr_min, "absdiff", eps ), true );
-%
-%arma::ivec actualCOO = arma::ivec( size, arma::fill::zeros );
-%double lapcostCOO;
-%SPML::Sparse::CMatrixCOO coo;
-%SPML::Sparse::MatrixDenseToCOO( mat_1_dense, coo );
-%SPML::LAP::SequentalExtremum( coo, SPML::LAP::TSearchParam::SP_Min, infValue, resolution, actualCOO, lapcostCOO );
-%BOOST_CHECK_EQUAL( arma::approx_equal( actualCOO, expected_1_subextr_min, "absdiff", eps ), true );
-%}
-%\end{lstlisting}

@@ -115,11 +115,12 @@
 \newcommand{\approvalsize}{\fontsize{17pt}{24pt}\selectfont}
 \newcommand{\sectionsize}{\fontsize{14pt}{18pt}\selectfont}
 \newcommand{\subsectionsize}{\fontsize{14pt}{16pt}\selectfont}
-\newcommand{\attachmentsize}{\fontsize{17pt}{24pt}\selectfont}
+\newcommand{\attachmentsize}{\fontsize{14pt}{18pt}\selectfont}
 %\newcommand{\tabletextsize}{\fontsize{10pt}{15pt}\selectfont}
 \newcommand{\tabletextsize}{\fontsize{12pt}{15pt}\selectfont}
-\newcommand{\picturetextsize}{\fontsize{12pt}{15pt}\selectfont}
-\newcommand{\listingtextsize}{\fontsize{11pt}{11pt}\selectfont}
+%\newcommand{\picturetextsize}{\fontsize{12pt}{15pt}\selectfont} % smaller font
+\newcommand{\picturetextsize}{\fontsize{14pt}{18pt}\selectfont} % normal
+\newcommand{\listingtextsize}{\fontsize{10pt}{10pt}\selectfont}
 \newcommand{\footnotesize}{\fontsize{8pt}{12pt}\selectfont}
 \newcommand{\footnotetextsize}{\fontsize{10pt}{15pt}\selectfont}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,7 +138,7 @@
 \setlength{\oddsidemargin}{25mm} % Лучше поле задать 25 мм, т.к. подшивают обычно 20 мм
 \setlength{\textwidth}{175mm}
 \setlength{\topmargin}{7.5mm}
-\setlength{\textheight}{257mm}
+\setlength{\textheight}{257mm} % 297-25-257=15 - нижнее поле
 \setlength{\parindent}{10mm} % Абзацный отступ
 \setlength{\parskip}{2mm}
 %\setlength{\parskip}{0mm}
@@ -351,10 +352,10 @@
 % \writeattachmentnotnum{description}{title}{label}
 \def\writeattachmentnonum#1#2#3{
   \refstepcounter{attachment}
-  \hfill{\MakeUppercase{\wordattachment}}\vspace{-4mm} \\
-  \null\hfill #1 \\
+  \hfill{\MakeUppercase{\wordattachment}}\vspace{-3mm} \\
+  \null\hfill{#1}\vspace{2mm} \\
   {
-	\attachmentsize\centering#2\par
+	\attachmentsize\centering\MakeUppercase{#2}\par
   }
   \addcontentsline{toc}{attachment}{\wordattachment.~#2}
   \ifx&#3&\else
@@ -366,10 +367,11 @@
 % \writeattachmentnum{description}{title}{label}
 \def\writeattachmentnum#1#2#3{
   \refstepcounter{attachment}
-  \hfill{\MakeUppercase{\wordattachment~\theattachment}}\vspace{-4mm} \\
-  \null\hfill #1 \\
+  \hfill{\MakeUppercase{\wordattachment~\theattachment}}\vspace{-3mm} \\
+  \null\hfill{#1}\vspace{2mm} \\
+%  \null\hfill #1 \\
   {
-    \attachmentsize\centering#2\par
+    \attachmentsize\centering\MakeUppercase{#2}\par
   }
   \addcontentsline{toc}{attachment}{\wordattachment~\theattachment.~#2}
   \ifx&#3&\else
@@ -405,9 +407,8 @@
 \def\vcell#1#2#3#4{\parbox[c][#3][b]{#1}{\vbox to #2{\cell{#1}{#2}{#4}\vss}}}
 
 \def\writesection#1{
-  \newpage
+%  \newpage
   \begin{center}
-%    \centering\sectionsize\bfseries\MakeUppercase{#1}
     \centering\sectionsize\MakeUppercase{#1}
   \end{center}
   \par
@@ -420,7 +421,6 @@
   \leftskip 2cm
   \interlinepenalty\@M
   \vspace{4mm}
-%  {\subsectionsize\bfseries#1}%
   {\subsectionsize#1}%
   \vspace{2mm}
   \par
@@ -1023,4 +1023,4 @@
 
 %\newcommand{\tablabelsep}{~\cyrdash\ }
 \captiondelim{~--~} % Смена разделителя между "таблица+номер" и собственно названием
-\renewcommand{\tablename}{Таблица}
+\renewcommand{\tablename}{\normalsize Таблица}
