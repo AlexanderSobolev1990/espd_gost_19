@@ -7,21 +7,21 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[exampletask]{espd}
-%\usepackage[russian]{babel}
-\usepackage{array}
+%\usepackage[russian]{babel} % polyglossia
+%\usepackage{caption}
+%\usepackage{array}
 \usepackage{setspace}
 \usepackage{fontspec}
-\usepackage{cite}
+\usepackage{cite} % Для цитирования
 \usepackage{amsmath}
 \usepackage{gensymb} % Для знака градуса
 \usepackage{mathtools}
 \usepackage{listings} % Для листингов исходного кода
-\usepackage{color}
-\usepackage{multicol}
-%\usepackage{polyglossia}
+\usepackage{hhline} % Для двойной линии отчерка в заголовках таблиц
+\usepackage{color} % Цвет для листингов
+
 
 %\usepackage{graphicx}
-%\usepackage{caption}
 %\usepackage{float}
 %\usepackage{ccaption}
 
@@ -36,6 +36,11 @@
 \newcommand{\sdash}{\nobreakdash-}  % Дефис неразрывный без пробелов до и после
 \newcommand{\ndash}{\nobreakdash~--~}  % Короткое тире неразрывное с пробелами до и после
 \newcommand{\mdash}{\nobreakdash~---~} % Длинное тире неразрывное с пробелами до и после
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Для таблиц longtable
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\doublerulesep}{1.5pt}% Разделитель между двойным отчерком заголовка таблицы
+\floatsetup[longtable]{LTcapwidth=table} % Выравнивание заголовка по левому краю
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Определение форматирования исходного кода в тексте документа
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -179,6 +184,6 @@
 \bibliography{список_литературы}
 \include{термины}
 \include{аббревиатуры}
-%\include{приложение}
+\include{приложение}
 }
 \end{document}

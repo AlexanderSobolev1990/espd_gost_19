@@ -10,14 +10,20 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{espd}[2019/08/24 GOST 19]
 %\RequirePackage{graphicx}
-\usepackage{graphicx}
+%\usepackage{polyglossia}
 %\usepackage{caption}
 
 \usepackage{ctable}
+\usepackage{longtable} % Для таблиц, длиннее 1 страницы
+
+\usepackage{ccaption}
+\usepackage{floatrow}
+\usepackage{graphicx}
+
 \usepackage{array}
 \usepackage{ifthen}
 \usepackage{multirow}
-\usepackage{longtable} % Для таблиц, длиннее 1 страницы
+\usepackage{multicol}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Задание перечислений буквами
@@ -113,7 +119,7 @@
 %\newcommand{\tabletextsize}{\fontsize{10pt}{15pt}\selectfont}
 \newcommand{\tabletextsize}{\fontsize{12pt}{15pt}\selectfont}
 \newcommand{\picturetextsize}{\fontsize{12pt}{15pt}\selectfont}
-\newcommand{\listingtextsize}{\fontsize{10pt}{10pt}\selectfont}
+\newcommand{\listingtextsize}{\fontsize{11pt}{11pt}\selectfont}
 \newcommand{\footnotesize}{\fontsize{8pt}{12pt}\selectfont}
 \newcommand{\footnotetextsize}{\fontsize{10pt}{15pt}\selectfont}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -134,6 +140,7 @@
 \setlength{\textheight}{257mm}
 \setlength{\parindent}{10mm} % Абзацный отступ
 \setlength{\parskip}{2mm}
+%\setlength{\parskip}{0mm}
 \setlength{\headheight}{10mm}
 \setlength{\headsep}{7.5mm}
 \setlength{\arrayrulewidth}{0.1pt}
@@ -463,11 +470,12 @@
   \addcontentsline{toc}{subsection}{\numsubsection~#1}
 }
 \newcommand{\paragraph}[1]{  
+  \parskip1mm
   \refstepcounter{paragraph}
   \writesubsection{\numparagraph~#1}
   \ifx&#1&\else
     \addcontentsline{toc}{paragraph}{\numparagraph~#1}
-  \fi  
+  \fi  	
 }
 \newcommand{\subparagraph}[1]{
   \refstepcounter{subparagraph}
@@ -933,7 +941,7 @@
 \def\p@enumi{\theenumi \leftmargini}
 \def\labelenumi{\theenumi)}
 %
-\def\theenumii{$-$}
+\def\theenumii{--}
 \def\p@enumii{\theenumii \leftmarginii}
 \def\labelenumii{\theenumii}
 %
@@ -1000,3 +1008,19 @@
 	\setlength{\abovedisplayshortskip}{0pt}%
 	\setlength{\belowdisplayshortskip}{0pt}%
 }%
+%
+%\setlength\LTleft{0pt plus \textwidth}
+%\setlength\LTright{0pt plus \textwidth}
+
+% Разделитель записи «Таблица #» и названия таблицы
+%\newcommand{\tablabelsep}{~\cyrdash\ }
+%\LTleft=\z@
+%\LTright=\fill
+%%% Таблицы %%%
+%\DeclareCaptionLabelSeparator{tabsep}{\tablabelsep} % нумерация таблиц
+%%\DeclareCaptionFormat{split}{\splitformatlabel#1\par\splitformattext#3}
+%
+
+%\newcommand{\tablabelsep}{~\cyrdash\ }
+\captiondelim{~--~} % Смена разделителя между "таблица+номер" и собственно названием
+\renewcommand{\tablename}{Таблица}
