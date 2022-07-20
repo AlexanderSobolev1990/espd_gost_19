@@ -909,7 +909,7 @@
       \picturetextsize\centering{\wordimage~\arabic{illustration}.~{#2}}
     \fi
     \ifx&#5&\else
-      \label{img:#5}
+      \label{#5} %      \label{img:#5}
     \fi
   \end{center}
   \vspace{2mm}
