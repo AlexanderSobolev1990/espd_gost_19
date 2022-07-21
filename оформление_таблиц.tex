@@ -118,3 +118,44 @@
 }
 
 Пример оформления ссылки на таблицу: см.~таблицу~\ref{t:tab2}.
+
+\subsection{Пример таблицы спецификации}
+
+
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+Пример таблицы, часто встречающийся в программной документации:
+\newpage
+{\tabletextsize
+	\begin{longtable}[c]{| >{\raggedright}m{75mm} | >{\raggedright}m{60mm} | >{\raggedright}m{30mm} |}
+		%----------------------- преамбула ---------------------	
+%		\caption{\normalsize Пример таблицы\hspace{25cm}}
+%		\label{t:tb2} \\
+		\hline
+		\multicolumn{1}{| >{\centering}m{75mm} |}{Обозначение} & 
+		\multicolumn{1}{| >{\centering}m{60mm} |}{Наименование} & 
+		\multicolumn{1}{| >{\centering}m{30mm} |}{Примечание} \xrowht[()]{10mm}\tabularnewline
+		\hhline{|=|=|=|}\hline
+		\endfirsthead % Конец заголовка на 1 странице
+		\multicolumn{3}{l}{Продолжение таблицы \thetable} \\ % 6 - число колонок, по-другому не получается
+		\hline
+		% Способ, при котором раздельно формуруется выравнивание заголовка и контетнта
+		\multicolumn{1}{| >{\centering}m{75mm} |}{Обозначение} & 
+		\multicolumn{1}{| >{\centering}m{60mm} |}{Наименование} & 
+		\multicolumn{1}{| >{\centering}m{30mm} |}{Примечание} \xrowht[()]{10mm}\tabularnewline
+		\hhline{|=|=|=|}
+		\endhead
+		\hline
+%		\multicolumn{3}{r}{\tabletextsize см. далее}
+		\endfoot
+		\hline
+		\endlastfoot	
+		%------------------- табличные данные ------------------
+		
+		1 & А что если пофиг на увеличение ячееек пускай себе увеличиваются и все & 3 \xrowht[()]{7mm}\tabularnewline\hline
+		~ & ~ & ~ \xrowht[()]{5mm}\tabularnewline\hline
+		~ & ~ & ~ \tabularnewline\hline
+		\cell{75mm}{7mm}{Какой-то текст возможно очень очень длинный} & \cell{60mm}{7mm}{} & \cell{30mm}{7mm}{} \tabularnewline\hline
+		\cell{75mm}{7mm}{} & \cell{60mm}{7mm}{} & \cell{30mm}{7mm}{} \tabularnewline\hline
+	\end{longtable}
+}
+
