@@ -17,6 +17,9 @@
 \usepackage{listings} % Для листингов исходного кода
 \usepackage{hhline} % Для двойной линии отчерка в заголовках таблиц
 \usepackage{color} % Цвет для листингов
+%\usepackage{inputenc}
+%\usepackage{fontenc}
+%\usepackage{fancyvrb}
 
 \graphicspath{ {./иллюстрации/} }
 
@@ -36,16 +39,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Определение форматирования исходного кода в тексте документа
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\definecolor{dkgreen}{rgb}{0,0.5,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+% Можно выделять исходники цветом, но зачем
+%\definecolor{dkgreen}{rgb}{0,0.5,0}
+%\definecolor{gray}{rgb}{0.5,0.5,0.5}
+%\definecolor{mauve}{rgb}{0.58,0,0.82}
 \lstset{
-	frame=tb,
+	frame=none,
 	language=C++,
 	aboveskip=3mm,
 	belowskip=3mm,
 	showstringspaces=false,
-	columns=flexible,
+	columns=fixed, %flexible,
 	basicstyle=\listingtextsize\fontspec{Noto Sans Mono},%{Courier New},
 	extendedchars=true, % без символа \ !!! - так поддерживается русский язык в комментариях
 	inputencoding=utf8x,
@@ -54,9 +58,9 @@
 %	numberstyle=\tiny,
 %	stepnumber=1,
 %	numberstyle=\tiny\color{mauve},
-	keywordstyle=\color{blue},
-	commentstyle=\color{dkgreen},
-	stringstyle=\color{mauve},
+%	keywordstyle=\color{blue},
+%	commentstyle=\color{dkgreen},
+%	stringstyle=\color{mauve},
 	breaklines=true,
 	breakatwhitespace=true,
 	tabsize=3

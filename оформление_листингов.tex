@@ -4,22 +4,53 @@
 
 \subsection{Пример оформления иерархии вложенности проекта}
 
-Данный пример получен при помощи команды \lstinline|tree| в linux.
+Данный пример иерархии вложенности файлов проекта получен под linux в файл \lstinline|example| при помощи команды:
 
-\noindent
+\begin{lstlisting}[numbers=none]
+tree -o example --charset windows-1251 | sed -e 's/[\]/ /g'
+\end{lstlisting}
+
+Для обеспечения правильного отображения в конце каждой строки должны быть символы переноса строки: \lstinline|\\|.\\
+
+{
+\fontspec{Noto Sans Mono}\listingtextsize\noindent
+Корневая директория программы\\
 ├── CMakeLists.txt\\
-├──include\\
+├── include\\
 │   ├── compare.h\\
 │   ├── lap.h\\
 │   └── sparse.h\\
-├──src\\
+├── src\\
 │   ├── laphungarian.cpp\\
 │   ├── lapjvcdense.cpp\\
 │   ├── lapjvcsparse.cpp\\
 │   ├── lapmack.cpp\\
 │   ├── lapseqextr.cpp\\
 │   └── sparse.cpp\\
-└── tree.txt\\
+
+% обязательно оставить один пробел строки!
+}
+новый текст
+
+%{\tabletextsize
+%	% Всегда вставлять параметр [с] после longtable - выравнивание по центру страницы
+%	\begin{longtable}[c]{ >{\raggedright}m{10cm} }
+%		\caption{\normalsize Структура вложенности проекта\hspace{25cm}} % 
+%		\label{t:sourcetab} \\		
+%		├── CMakeLists.txt\\
+%		├── include\\
+%		│   ├── compare.h\\
+%		│   ├── lap.h\\
+%		│   └── sparse.h\\
+%		├── src\\
+%		│   ├── laphungarian.cpp\\
+%		│   ├── lapjvcdense.cpp\\
+%		│   ├── lapjvcsparse.cpp\\
+%		│   ├── lapmack.cpp\\
+%		│   ├── lapseqextr.cpp\\
+%		│   └── sparse.cpp\\		
+%	\end{longtable}
+%}
 
 \subsection{Пример оформления листингов}
 
