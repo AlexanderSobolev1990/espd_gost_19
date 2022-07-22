@@ -122,8 +122,8 @@
 \subsection{Пример таблицы спецификации}
 
 \newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
-\renewcommand{\ULdepth}{1.8pt}\tabletextsize
 {
+	\renewcommand{\ULdepth}{1.8pt}\tabletextsize
 	\begin{longtable}[c]{|>{\raggedright}m{74mm}|>{\raggedright}m{64mm}|>{\raggedright}m{25mm}|}
 		%----------------------- преамбула ---------------------	
 		\hline
@@ -213,9 +213,9 @@
 \subsection{Пример таблицы ведомости эксплуатационных документов}
 
 %\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
-%\renewcommand{\ULdepth}{1.8pt}\tabletextsize
 {
-	\begin{longtable}[c]{|>{\raggedright}m{70mm}|>{\raggedright}m{60mm}|>{\raggedright}m{8mm}|>{\raggedright}m{25mm}|}
+	\renewcommand{\ULdepth}{1.8pt}\tabletextsize
+	\begin{longtable}[c]{|>{\raggedright}m{70mm}|>{\raggedright}m{60mm}|>{\centering}m{8mm}|>{\raggedright}m{25mm}|}
 		%----------------------- преамбула ---------------------	
 		\hline
 		\centering{Обозначение} & 
@@ -265,3 +265,43 @@
 		~ & ~ & ~ & ~ \xrowht[(3.5mm)]{3.5mm}\tabularnewline\hline
 	\end{longtable}
 }
+
+%\newpage
+%\subsection{Пример таблицы информационно-удостоверяющего листа}
+%
+%Данный лист используется в случае сдачи исходных текстов программ в виде *.zip архива с контрольной суммой (MD5).
+%
+%{
+%	\renewcommand{\ULdepth}{1.8pt}\tabletextsize
+%	\begin{longtable}[c]{|>{\centering}m{11mm}|>{\centering}m{50mm}|>{\centering}m{55mm}|>{\centering}m{20mm}|>{\centering}m{20mm}|}
+%		%----------------------- преамбула ---------------------	
+%		\hline
+%		{Номер\\п/п} & 
+%		{Обозначение документа} & 
+%		{Наименование изделия,\\наименование документа} &
+%		{Версия} &
+%		{Номер\\последнего\\изменения} \xrowht[(5mm)]{5mm}\tabularnewline
+%		\hhline{|=|=|=|=|=|}\hline
+%		\endfirsthead % Конец заголовка на 1 странице
+%		\hline
+%		\endfoot
+%		\hline
+%		%------------------- табличные данные ------------------		
+%		1 & АБВГ.ХХХХХХ.ХХЭСБ & Некое супер-изделие\\Электронная модель сборочной единицы & 2 & 1 \tabularnewline\hline
+%	\end{longtable}
+%}
+%\vspace{-12pt}
+%{
+%	\begin{longtable}[c]{|>{\centering}m{20mm}|>{\raggedright}m{148mm}|}	
+%		\hline
+%		MD5 & 1234.5678.9012.2345 \tabularnewline\hline		
+%	\end{longtable}	
+%}
+%\vspace{-12pt}
+%{
+%	\begin{longtable}[c]{|>{\centering}m{20mm}|>{\raggedright}m{148mm}|}	
+%		\hline
+%		MD5 & 1234.5678.9012.2345 \tabularnewline\hline		
+%	\end{longtable}	
+%}
+%

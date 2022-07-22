@@ -27,28 +27,6 @@
 \usepackage{ulem} % подчеркивание
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Задание перечислений буквами
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\usepackage{enumitem}
-%
-%\makeatletter
-%\newcommand{\realasbuk}[1]{\expandafter\russian@realalph\csname c@#1\endcsname}
-%
-%\def\russian@realAlph#1{\ifcase#1\or
-%	А\or Б\or В\or Г\or Д\or Е\or Ж\or
-%	З\or И\or К\or Л\or М\or Н\or О\or
-%	П\or Р\or С\or Т\or У\or Ф\or Х\or
-%	Ц\or Ч\or Ш\or Щ\or Э\or Ю\or Я\else\xpg@ill@value{#1}{russian@Alph}\fi}
-%\def\russian@realalph#1{\ifcase#1\or
-%	а\or б\or в\or г\or д\or е\or ж\or
-%	з\or и\or к\or л\or м\or н\or о\or
-%	п\or р\or с\or т\or у\or ф\or х\or
-%	ц\or ч\or ш\or щ\or э\or ю\or я\else\xpg@ill@value{#1}{russian@alph}\fi}
-%
-%\AddEnumerateCounter{\realasbuk}{\russian@realalph}{щ}
-%\makeatother
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \linespread{1.25}	% Это эквивалент 1,5 интервала в ворде
 
 \clubpenalty=10000  % Это костыль против
@@ -159,6 +137,7 @@
 \def\wordyear{г.}
 \def\wordapproval{Лист утверждения}
 \def\wordapprovalpostfix{-ЛУ}
+\def\wordiulpostfix{-УЛ}
 \def\wordperformer{Исполнитель}
 \def\wordperformers{Исполнители}
 \def\wordapproved{Утвержден}
@@ -194,6 +173,8 @@
 \def\wordempty{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Переменные
+\var{productname} % Изделие название
+
 \var{customername} % Заказчик
 \var{customerrank}
 
@@ -300,7 +281,7 @@
 }
 \DeclareOption{explanationnote}{
   \type{Пояснительная записка}
-  \typecode{81}
+  \typecode{81}  
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Код документа
@@ -614,7 +595,7 @@
 	\marginpar{
 		\vskip -1.5mm
 		\tabletextsize
-		\fontspec{GOST type A Bold Italic}
+%		\fontspec{GOST type A Bold Italic}
 		\renewcommand{\baselinestretch}{0.6}\selectfont  
 		\setlength{\tabcolsep}{0mm}				
 		\reglist
@@ -719,6 +700,61 @@
 	\end{tabular}
 	}	
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Информационно-удостоверяющий лист (ИУЛ)
+\newcommand{\iulist}{
+	\newpage
+	
+	% Левый штамп вертикальный
+	\reversemarginpar
+	\setlength{\marginparsep}{17.25mm}
+	\tabletextsize
+	\renewcommand{\baselinestretch}{0.6}\selectfont  
+	\setlength{\tabcolsep}{0mm}	
+	\marginpar{\vskip -2.5cm \hbox{\rotatebox{90}{\stampleftshort}}}
+	
+	% Основная таблица ИУЛ
+	\reversemarginpar
+	\setlength{\marginparsep}{5.2mm}
+	\marginpar{
+		\vskip -1.5mm
+		\tabletextsize
+%				\fontspec{GOST type A Bold Italic}
+%		\renewcommand{\baselinestretch}{0.6}\selectfont  
+		\setlength{\tabcolsep}{0mm}				
+		\iul
+		%\setlength{\tabcolsep}{\tabmarg}
+	} 
+%	% Миништамп внизу ИУЛ
+%	\marginpar{
+%		\vskip -0.4mm
+%		\tabletextsize
+%		\fontspec{GOST type A Bold Italic}
+%		\renewcommand{\baselinestretch}{0.6}\selectfont  
+%		\setlength{\tabcolsep}{0mm}				
+%		\iulstamp
+%	}     
+%	\setlength{\tabcolsep}{\tabmarg}
+}
+
+\newcommand{\iul}{ 
+	\setlength{\arrayrulewidth}{0.5mm} 
+	\hbox{%  	
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\cell{12.5mm}{14.5mm}{Номер\\п/п} &
+			\cell{55.5mm}{14.5mm}{Обозначение документа} &
+			\cell{59.5mm}{14.5mm}{Наименование изделия,\\наименование документа} &
+			\cell{24.5mm}{14.5mm}{Версия} &
+			\cell{24.5mm}{14.5mm}{Номер\\последнего\\изменения} \\
+			\hline
+			\cell{1mm}{14.5mm} 1 & {\fullcode}-ДЭ & {\@productname} & 4 & 5 \\
+			\hline
+		\end{tabular}
+	}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Штамп для учета - оригинал
 %\newcommand{\stampleftfull}{
@@ -972,8 +1008,8 @@
   \addcontentsline{toc}{attachment}{\wordbibliography}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Вставка в начале документа
-\AtBeginDocument{\makeapproval\maketitle}
+% Вставка в начале документа --> вынесено отдельной командой
+%\AtBeginDocument{\makeapproval\maketitle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Вставка в конце документа
 \AtEndDocument{
