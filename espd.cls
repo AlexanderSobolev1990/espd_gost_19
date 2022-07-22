@@ -26,6 +26,20 @@
 \usepackage{multicol}
 \usepackage{ulem} % подчеркивание
 
+\usepackage{stackengine}
+\usepackage{amssymb}
+
+%\usepackage{setspace}
+%%\usepackage{fontspec}
+%%\usepackage{cite} % Для цитирования
+%\usepackage{amsmath,bm}
+%\usepackage{gensymb} % Для знака градуса
+%\usepackage{mathtools}
+%\usepackage{listings} % Для листингов исходного кода
+%\usepackage{hhline} % Для двойной линии отчерка в заголовках таблиц
+%\usepackage{color} % Цвет для листингов
+%\usepackage{amssymb}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \linespread{1.25}	% Это эквивалент 1,5 интервала в ворде
 
@@ -173,7 +187,8 @@
 \def\wordempty{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Переменные
-\var{productname} % Изделие название
+\var{iulproductname} % Изделие название
+\var{iulmdfive} % Контрольная сумма
 
 \var{customername} % Заказчик
 \var{customerrank}
@@ -229,7 +244,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption{exampletask}{
 	\type{Пример оформления документации}
-	\typecode{ПРИМЕР}
+	\typecode{77}
 }
 \DeclareOption{technicaltask}{
   \type{Техническое задание}
@@ -702,60 +717,6 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Информационно-удостоверяющий лист (ИУЛ)
-\newcommand{\iulist}{
-	\newpage
-	
-	% Левый штамп вертикальный
-	\reversemarginpar
-	\setlength{\marginparsep}{17.25mm}
-	\tabletextsize
-	\renewcommand{\baselinestretch}{0.6}\selectfont  
-	\setlength{\tabcolsep}{0mm}	
-	\marginpar{\vskip -2.5cm \hbox{\rotatebox{90}{\stampleftshort}}}
-	
-	% Основная таблица ИУЛ
-	\reversemarginpar
-	\setlength{\marginparsep}{5.2mm}
-	\marginpar{
-		\vskip -1.5mm
-		\tabletextsize
-%				\fontspec{GOST type A Bold Italic}
-%		\renewcommand{\baselinestretch}{0.6}\selectfont  
-		\setlength{\tabcolsep}{0mm}				
-		\iul
-		%\setlength{\tabcolsep}{\tabmarg}
-	} 
-%	% Миништамп внизу ИУЛ
-%	\marginpar{
-%		\vskip -0.4mm
-%		\tabletextsize
-%		\fontspec{GOST type A Bold Italic}
-%		\renewcommand{\baselinestretch}{0.6}\selectfont  
-%		\setlength{\tabcolsep}{0mm}				
-%		\iulstamp
-%	}     
-%	\setlength{\tabcolsep}{\tabmarg}
-}
-
-\newcommand{\iul}{ 
-	\setlength{\arrayrulewidth}{0.5mm} 
-	\hbox{%  	
-		\begin{tabular}{|c|c|c|c|c|}
-			\hline
-			\cell{12.5mm}{14.5mm}{Номер\\п/п} &
-			\cell{55.5mm}{14.5mm}{Обозначение документа} &
-			\cell{59.5mm}{14.5mm}{Наименование изделия,\\наименование документа} &
-			\cell{24.5mm}{14.5mm}{Версия} &
-			\cell{24.5mm}{14.5mm}{Номер\\последнего\\изменения} \\
-			\hline
-			\cell{1mm}{14.5mm} 1 & {\fullcode}-ДЭ & {\@productname} & 4 & 5 \\
-			\hline
-		\end{tabular}
-	}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Штамп для учета - оригинал
 %\newcommand{\stampleftfull}{
 %  \tabletextsize
@@ -1059,3 +1020,101 @@
 %\newcommand{\tablabelsep}{~\cyrdash\ }
 \captiondelim{~--~} % Смена разделителя между "таблица+номер" и собственно названием
 \renewcommand{\tablename}{\normalsize Таблица}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Информационно-удостоверяющий лист (ИУЛ)
+\newcommand{\iulist}{
+	\newpage
+	{
+		% Левый штамп вертикальный
+		\reversemarginpar
+		\setlength{\marginparsep}{17.25mm}
+		\tabletextsize
+		\renewcommand{\baselinestretch}{0.6}\selectfont  
+%		\setlength{\tabcolsep}{0mm}	
+		\marginpar{\vskip -2.5cm \hbox{\rotatebox{90}{\stampleftshort}}}
+	}
+	% Основная таблица ИУЛ
+	\reversemarginpar
+	\setlength{\marginparsep}{5.2mm}
+	\marginpar{
+		\vskip -1.5mm
+		\tabletextsize
+%				\fontspec{GOST type A Bold Italic}
+		%		\renewcommand{\baselinestretch}{0.6}\selectfont  
+%		\setlength{\tabcolsep}{0mm}				
+		\iul
+%		\setlength{\tabcolsep}{\tabmarg}
+	} 
+	%	% Миништамп внизу ИУЛ
+	%	\marginpar{
+	%		\vskip -0.4mm
+	%		\tabletextsize
+	%		\fontspec{GOST type A Bold Italic}
+	%		\renewcommand{\baselinestretch}{0.6}\selectfont  
+	%		\setlength{\tabcolsep}{0mm}				
+	%		\iulstamp
+	%	}     
+	\setlength{\tabcolsep}{\tabmarg}
+}
+
+%%	\setlength{\arrayrulewidth}{0.5mm} 
+%%	\hbox{%  	
+%%		\begin{tabular}{|c|c|c|c|c|}
+%%			\hline
+%%			\cell{12.5mm}{14.5mm}{Номер\\п/п} &
+%%			\cell{55.5mm}{14.5mm}{Обозначение документа} &
+%%			\cell{59.5mm}{14.5mm}{Наименование изделия,\\наименование документа} &
+%%			\cell{24.5mm}{14.5mm}{Версия} &
+%%			\cell{24.5mm}{14.5mm}{Номер\\последнего\\изменения} \\
+%%			\hline
+%%			\cell{1mm}{14.5mm} 1 & {\fullcode}-ДЭ & {\@productname} & 4 & 5 \\
+%%			\hline
+%%		\end{tabular}
+%%	}
+
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+\newcommand{\iul}{
+	{%
+		\setlength{\arrayrulewidth}{0.5mm} 
+		\begin{longtable}[c]{|>{\centering}m{12mm}|>{\centering}m{53mm}|>{\raggedright}m{54mm}|>{\centering}m{20mm}|>{\centering}m{20mm}|}
+			%----------------------- преамбула ---------------------	
+			\hline
+			\centering{Номер\\п/п} & 
+			\centering{Обозначение документа} & 
+			\centering{Наименование изделия,\\наименование документа} & 
+			\centering{Версия} &
+			\centering{Номер\\последнего\\изменения} \xrowht[(5mm)]{5mm}\tabularnewline
+			\hhline{|=|=|=|=|=|}
+			\endfirsthead % Конец заголовка на 1 странице
+			\hline
+			\centering{Номер\\п/п} & 
+			\centering{Обозначение документа} & 
+			\centering{Наименование изделия,\\наименование документа} & 
+			\centering{Версия} &
+			\centering{Номер\\последнего\\изменения} \xrowht[(5mm)]{5mm}\tabularnewline
+			\hhline{|=|=|=|=|=|}
+			\endhead
+			\hline
+			\endfoot
+			\hline
+			\endlastfoot	
+			%------------------- табличные данные ------------------		
+			1 & {\fullcode}-ДЭ & {\@iulproductname} & ~ & ~ \xrowht[(3.5mm)]{3.5mm}\tabularnewline\hline
+		\end{longtable}
+	}	
+%	\vspace{-6pt}
+%	{
+%	\setlength{\arrayrulewidth}{0.5mm} 
+%	\begin{tabular}{|p{180mm}|}\hline\\\hline\end{tabular}% чистая строка
+%	}
+	{%
+	\setlength{\arrayrulewidth}{0.5mm} 
+	\begin{longtable}[c]{|>{\centering}m{25mm}|>{\raggedright}m{150mm}|}
+		\hline
+		MD5 & 
+		{\@iulmdfive} \tabularnewline
+		\hline
+	\end{longtable}
+}
+}
