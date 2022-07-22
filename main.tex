@@ -11,7 +11,7 @@
 \usepackage{setspace}
 \usepackage{fontspec}
 \usepackage{cite} % Для цитирования
-\usepackage{amsmath}
+\usepackage{amsmath,bm}
 \usepackage{gensymb} % Для знака градуса
 \usepackage{mathtools}
 \usepackage{listings} % Для листингов исходного кода
@@ -20,11 +20,19 @@
 %\usepackage{inputenc}
 %\usepackage{fontenc}
 %\usepackage{fancyvrb}
+\usepackage{amssymb}
 
 \graphicspath{ {./иллюстрации/} }
 
 \bibliographystyle{gost2008}
 \setmainfont{Times New Roman}
+
+\renewcommand{\kappa}{\varkappa}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Переопределение команд дефиса
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
