@@ -24,7 +24,7 @@
 \usepackage{ifthen}
 \usepackage{multirow}
 \usepackage{multicol}
-
+\usepackage{ulem} % подчеркивание
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Задание перечислений буквами
@@ -620,8 +620,6 @@
 		\reglist
 		%\setlength{\tabcolsep}{\tabmarg}
 		} 
-	
-
 	% Миништамп внизу
 	\marginpar{
 	    \vskip -0.4mm
@@ -974,12 +972,12 @@
   \addcontentsline{toc}{attachment}{\wordbibliography}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Вставка листа утверждения и титульного листа
+% Вставка в начале документа
 \AtBeginDocument{\makeapproval\maketitle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Вставка листа о регистрации изменений и указателей на последние элементы
+% Вставка в конце документа
 \AtEndDocument{
-  \registration
+%  \registration
   \set{lastpage}{\thepage}
   \set{lastattachment}{\arabic{attachment}}
   \set{lastillustration}{\arabic{illustration}}
