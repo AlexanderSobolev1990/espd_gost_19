@@ -188,7 +188,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Переменные
 \var{iulproductname} % Изделие название
-\var{iulmdfive} % Контрольная сумма
+\var{iulmdfive} % Контрольная сумма MD5
+\var{iulversion} % Версия для ИУЛ
+\var{iulnumoflastchange} % Номер последнего изменения для ИУЛ
+\var{iulnote} % Примечание ИУЛ
+\var{iuldeveloper} % Разраб.
+\var{iulcheck} % Проверил
+\var{iulnormocontrol} % Н.контр
+\var{iulapproved} % Утв.
+
 
 \var{customername} % Заказчик
 \var{customerrank}
@@ -1075,8 +1083,8 @@
 
 \newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
 \newcommand{\iul}{
+	\setlength{\arrayrulewidth}{0.5mm} 
 	{%
-		\setlength{\arrayrulewidth}{0.5mm} 
 		\begin{longtable}[c]{|>{\centering}m{12mm}|>{\centering}m{53mm}|>{\raggedright}m{54mm}|>{\centering}m{20mm}|>{\centering}m{20mm}|}
 			%----------------------- преамбула ---------------------	
 			\hline
@@ -1100,7 +1108,7 @@
 			\hline
 			\endlastfoot	
 			%------------------- табличные данные ------------------		
-			1 & {\fullcode}-ДЭ & {\@iulproductname} & ~ & ~ \xrowht[(3.5mm)]{3.5mm}\tabularnewline\hline
+			1 & {\fullcode}-ДЭ & {\@iulproductname} & {\@iulversion} & {\@iulnumoflastchange} \xrowht[(3.5mm)]{3.5mm}\tabularnewline\hline
 		\end{longtable}
 	}	
 %	\vspace{-6pt}
@@ -1109,12 +1117,42 @@
 %	\begin{tabular}{|p{180mm}|}\hline\\\hline\end{tabular}% чистая строка
 %	}
 	{%
-	\setlength{\arrayrulewidth}{0.5mm} 
-	\begin{longtable}[c]{|>{\centering}m{25mm}|>{\raggedright}m{150mm}|}
+	\begin{longtable}[c]{|>{\centering}m{25mm}|>{\raggedright}m{147.5mm}|}
 		\hline
 		MD5 & 
 		{\@iulmdfive} \tabularnewline
 		\hline
 	\end{longtable}
-}
+	}
+	{%
+		\begin{longtable}[c]{|>{\centering}m{56mm}|>{\centering}m{56mm}|>{\centering}m{56mm}|}
+			\hline
+			Примечание\\{\@iulnote} & ~ & ~ \tabularnewline
+			\hline
+		\end{longtable}
+	}
+	{%
+	\begin{longtable}[c]{|>{\raggedright}m{20mm}|>{\raggedright}m{50mm}|>{\centering}m{47mm}|>{\centering}m{46.5mm}|}
+		\hline
+		Разраб. & {\@iuldeveloper} & ~ & ~ \tabularnewline
+		\hline
+		Проверил & {\@iulcheck} & ~ & ~ \tabularnewline
+		\hline
+		~ & ~ & ~ & ~ \tabularnewline
+		\hline
+		Н.контр. & {\@iulnormocontrol} & ~ & ~ \tabularnewline
+		\hline
+		Утв. & {\@iulapproved} & ~ & ~ \tabularnewline
+		\hline
+	\end{longtable}
+	}
+	\hfill{10cm}
+	{%
+		\begin{longtable}[c]{|>{\raggedright}m{75mm}|>{\centering}m{45mm}|>{\centering}m{22mm}|>{\centering}m{22mm}|}
+			\hline
+			Информационно-удостоверяющий лист & {\fullcode} & \multirow{2}{*}{Лист}\\ \cline{1-1}{1} & \multirow{2}{*}{Листов}\\{1} \tabularnewline
+%			Информационно-удостоверяющий лист & {\fullcode} & ~ & ~ \tabularnewline
+			\hline
+		\end{longtable}
+	}
 }
