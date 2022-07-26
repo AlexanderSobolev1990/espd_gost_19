@@ -11,10 +11,10 @@
 \paragraph{Формула с автоприсвоением порядкового номера}
 Пример формул с присвоением порядкового номера и без удаления пробелов:
 \begin{align}
-	x = y+a \label{eq:формула 1}\\
-	z = a+x \label{eq:формула 2}
+	x = y+a, \label{eq:формула 1}\\
+	z = a+x, \label{eq:формула 2}
 \end{align}
-\noindent где: $x$\ndash коэффициент 1; \\
+\noindent где~~~$x$\ndash коэффициент 1; \\
 \indent $z$\ndash коэффициент 2;\\
 \indent $y$\ndash параметр 1;\\
 \indent $a$\ndash параметр 2.
@@ -24,11 +24,11 @@
 Пример формул с присвоением порядкового номера и с удалением пробелов:
 {\zerodisplayskips
 	\begin{align}
-	x = y+a \label{eq:формула 3}\\
-	z = a+x \label{eq:формула 4}
+	x = y+a, \label{eq:формула 3}\\
+	z = a+x, \label{eq:формула 4}
 	\end{align}
 }%
-\noindent где: $x$\ndash коэффициент 1; \\
+\noindent где~~~$x$\ndash коэффициент 1; \\
 \indent $z$\ndash коэффициент 2;\\
 \indent $y$\ndash параметр 1;\\
 \indent $a$\ndash параметр 2.
@@ -40,7 +40,7 @@
 
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-\item индексы:
+\item Индексы:
 {\zerodisplayskips
 	\begin{align}
 	A_1, \label{eq:ф1}\\
@@ -51,20 +51,20 @@
 }%
 Отметим, что выравнивание в формулах (\ref{eq:ф1})\ndash (\ref{eq:ф4}) идёт по центру \textit{группы}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item некоторые греческие буквы с учетом русской традиции:	
+\item Некоторые греческие буквы с учетом русской традиции:	
 {\zerodisplayskips
 	\begin{equation}
 	\alpha,\beta,\gamma,\phi,\epsilon,\theta. \label{eq:ф5}
 	\end{equation}
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item сумма, умножение, деление, дробь:
+\item Сумма, умножение, деление, дробь:
 {\zerodisplayskips
 	\begin{align}
 	\text{сумма:}\quad & A+B=C, \label{eq:ф6}\\
 	\text{умножение:}\quad & A\times B=C, \label{eq:ф7}\\
 	\text{деление через косую черту:}\quad & A/B=C, \label{eq:ф8}\\
-	\text{дробь (решение квадратного уравнения):}\quad & x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}. \label{eq:ф9}\\
+	\text{дробь (решение квадратного уравнения):}\quad & x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}, \label{eq:ф9}\\
 	\text{дробь (решение квадратного уравнения):}\quad & x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}. \label{eq:ф99}
 	\end{align}
 }%
@@ -73,7 +73,7 @@
 
 Обратите внимание, повторная вставка формулы (\ref{eq:ф99}) вызывает автоматическое выравнивание по высоте.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item производная и интеграл:
+\item Производная и интеграл:
 {\zerodisplayskips
 	\begin{equation}	
 	f’\quad f’’\quad
@@ -86,16 +86,16 @@
 	\end{equation}
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item знак суммы:
+\item Знак суммы:
 {\zerodisplayskips
 	\begin{equation}	
 	\sum_{i=1}^n a_i,\quad
-	\sum\nolimits_{i=1}^n b_i\quad
+	\sum\nolimits_{i=1}^n b_i.
 	\label{eq:ф11}
 	\end{equation}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item перенос формул вручную c указанием места разделения и команды \verb=split=:
+\item Перенос формул вручную c указанием места разделения и команды \verb=split=:
 {\zerodisplayskips
 	\begin{equation}	
 	\begin{split}
@@ -106,26 +106,26 @@
 	\end{equation}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item системы уравнений с фигурной скобкой:
+\item Cистемы уравнений с фигурной скобкой:
 {%\zerodisplayskips
 	\begin{equation}	
 	\left\{
 	\begin{aligned}
-	x^2+y^2&=7\\
-	x+y & = 3.\\
+	x^2+y^2&=7 \\
+	x+y & = 3. \\
 	\end{aligned}
 	\right.
 	\end{equation}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item длина волны через частоту:
+\item Длина волны через частоту:
 {\zerodisplayskips
 	\begin{equation}	
-	\lambda=C/(Fr \times 10^3),
+	\lambda=C/(Fr \times 10^3).
 	\end{equation}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item пример очень длинной формула с переносом:
+\item Пример очень длинной формула с переносом:
 {\zerodisplayskips
 	\begin{equation}
 	\begin{split}	
@@ -136,18 +136,18 @@
 	\end{equation}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item пример автовыбора высоты скобок путем использования команд \verb=\left= и \verb=\right= соответственно:
+\item Пример автовыбора высоты скобок путем использования команд \verb=\left= и \verb=\right= соответственно:
 {\zerodisplayskips
 	\begin{equation}
 	f(x)=1+\left(\frac{1}{1-x^{2}}
-	\right)^3
+	\right)^3.
 	\end{equation}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item пример многоэтажной дроби:
+\item Пример многоэтажной дроби:
 {\zerodisplayskips
 	\begin{equation}
-	X=\frac{\ln\left(\cfrac{A}{B}\right)\times \ln\left(\cfrac{C}{D}\right)}{\ln\left(\cfrac{E}{F} \right)\times \ln\left(\cfrac{G}{H} \right)}
+	X=\frac{\ln\left(\cfrac{A}{B}\right)\times \ln\left(\cfrac{C}{D}\right)}{\ln\left(\cfrac{E}{F} \right)\times \ln\left(\cfrac{G}{H} \right)}.
 	\end{equation}
 }
 %%%%%%%%

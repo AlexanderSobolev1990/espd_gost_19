@@ -10,11 +10,11 @@
 Пример формул в приложении:
 \zerodisplayskips{
 	\begin{align}
-	x = y+a \label{eq:формула приложения 1_1}\\
-	z = a+x \label{eq:формула приложения 1_2} 
+	x = y+a, \label{eq:формула приложения 1_1}\\
+	z = a+x, \label{eq:формула приложения 1_2} 
 	\end{align}
 }%
-\noindent где: $x$\ndash коэффициент 1; \\
+\noindent где~~~$x$\ndash коэффициент 1; \\
 \indent $z$\ndash коэффициент 2;\\
 \indent $y$\ndash параметр 1;\\
 \indent $a$\ndash параметр 2.
@@ -22,26 +22,27 @@
 Пример ссылки на формулу приложения без номера: см. формулу \ref{eq:формула приложения 1_1}.
 
 Пример рисунков в приложении:
-\illustration[][Тестовое изображение <<Лена>>][0.2]{Lenna}[img:приложение1-лена1]
-\illustration[][Тестовое изображение <<Лена>>][0.2]{Lenna}[img:приложение1-лена2]
+\illustration[][Тестовое изображение <<Лена>>][0.2]{Lenna}[fig:приложение1-лена1]
+\illustration[][Тестовое изображение <<Лена>>][0.2]{Lenna}[fig:приложение1-лена2]
 
-Пример ссылки на рисунки приложения без номера: см.~\ref{img:приложение1-лена1}.
+Пример ссылки на рисунки приложения без номера: см.~\ref{fig:приложение1-лена1}.
 
 \newpage
+
 Пример таблицы в приложении:
 
 {\tabletextsize
-	\begin{longtable}[c]{| >{\centering}m{12mm} | >{\raggedright}m{53mm} | >{\centering}m{20mm} | >{\centering}m{20mm} | >{\raggedright}m{30mm} | >{\centering}m{18mm} |}
+	\begin{longtable}[c]{| >{\centering}m{12mm} | >{\raggedright}m{53mm} | >{\centering}m{22mm} | >{\centering}m{15mm} | >{\raggedright}m{33mm} | >{\centering}m{18mm} |}
 		%----------------------- преамбула ---------------------	
 		\caption{\normalsize Пример таблицы\hspace{25cm}}
 		\label{t:таблица_приложения1} \\
 		\hline
-		\multicolumn{1}{| >{\centering}m{12mm} |}{Номер слова} & 
-		\multicolumn{1}{| >{\centering}m{53mm} |}{Наименование информации} & 
-		\multicolumn{1}{| >{\centering}m{20mm} |}{Усл.~об.} & 
-		\multicolumn{1}{| >{\centering}m{20mm} |}{Размерн.} & 
-		\multicolumn{1}{| >{\centering}m{30mm} |}{Пределы изменения} & 
-		\multicolumn{1}{| >{\centering}m{18mm} |}{Примеч.} \tabularnewline
+		\centering{Номер\\слова} & 
+		\centering{Наименование информации} & 
+		\centering{Условное\\обозначение} & 
+		\centering{Размер-\\ность} & 
+		\centering{Пределы\\изменения} & 
+		\centering{Примеча-\\ние} \tabularnewline
 		\hhline{|=|=|=|=|=|=|}
 		\endfirsthead % Конец заголовка на 1 странице
 		\multicolumn{6}{l}{Продолжение таблицы \thetable} \\ % 6 - число колонок, по-другому не получается
@@ -50,12 +51,12 @@
 		%	Номер слова & Наименование информации & Усл.~об. & Размерн. & Пределы изменения & Примеч. \tabularnewline
 		%
 		% Способ, при котором раздельно формуруется выравнивание заголовка и контетнта
-		\multicolumn{1}{| >{\centering}m{12mm} |}{Номер слова} & 
-		\multicolumn{1}{| >{\centering}m{53mm} |}{Наименование информации} & 
-		\multicolumn{1}{| >{\centering}m{20mm} |}{Усл.~об.} & 
-		\multicolumn{1}{| >{\centering}m{20mm} |}{Размерн.} & 
-		\multicolumn{1}{| >{\centering}m{30mm} |}{Пределы изменения} & 
-		\multicolumn{1}{| >{\centering}m{18mm} |}{Примеч.} \tabularnewline
+		\centering{Номер\\слова} & 
+		\centering{Наименование информации} & 
+		\centering{Условное\\обозначение} & 
+		\centering{Размер-\\ность} & 
+		\centering{Пределы\\изменения} & 
+		\centering{Примеча-\\ние} \tabularnewline
 		\hhline{|=|=|=|=|=|=|}
 		\endhead
 		\hline
@@ -68,7 +69,7 @@
 		1 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
 		2 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
 		3 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
-		4 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint
+		4 & Контрольное слово & CW\textunderscore & б/р & \ndash & uint \tabularnewline\hline
 	\end{longtable}
 }
 

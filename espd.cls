@@ -134,7 +134,7 @@
 \setlength{\textheight}{257mm} % 297-25-257=15 - нижнее поле
 \setlength{\parindent}{10mm} % Абзацный отступ
 \setlength{\parskip}{2mm}
-%\setlength{\parskip}{0mm}
+%\setlength{\parskip}{3mm}
 \setlength{\headheight}{10mm}
 \setlength{\headsep}{7.5mm}
 \setlength{\arrayrulewidth}{0.1pt}
@@ -169,10 +169,10 @@
 \def\wordduplinvnumber{Инв. \textnumero~дубл.}
 \def\wordregistration{Лист регистрации изменений}
 \def\wordsheetnumber{Номера листов (страниц)}
-\def\wordsheetsindoc{Всего листов (страниц) в докум.}
-\def\worddocnumber{\textnumero\\документа}
-\def\wordincldocanddate{Входящий \textnumero~сопрово-дительного докум. и дата}
-\def\wordsign{Подп.}
+\def\wordsheetsindoc{Всего листов (страниц) в доку-\\менте}
+\def\worddocnumber{Номер\\доку-\\мента}
+\def\wordincldocanddate{Входящий\\номер\\сопроводи-\\тельного\\ документа~и\\дата}
+\def\wordsign{Подпись}
 \def\worddate{Дата}
 \def\wordchanges{Изм.}
 \def\wordchanged{изменен-\\ных}
@@ -180,7 +180,7 @@
 %\def\wordchanged{измененных}
 %\def\wordreplaced{замененных}
 \def\wordnew{новых}
-\def\wordannulled{аннули-рованных}
+\def\wordannulled{аннулиро-\\ванных}
 \def\wordimage{Рис.}
 \def\wordrefimage{рис.~}
 \def\wordbibliography{Перечень использованных источников}
@@ -358,7 +358,7 @@
 \def\writeattachmentnonum#1#2#3{
   \refstepcounter{attachment}
   \hfill{\MakeUppercase{\wordattachment}}\vspace{-3mm} \\
-  \null\hfill{#1}\vspace{2mm} \\
+  \null\hfill{#1}\vspace{3mm} \\
   {
 	\attachmentsize\centering\MakeUppercase{#2}\par
   }
@@ -373,8 +373,7 @@
 \def\writeattachmentnum#1#2#3{
   \refstepcounter{attachment}
   \hfill{\MakeUppercase{\wordattachment~\theattachment}}\vspace{-3mm} \\
-  \null\hfill{#1}\vspace{2mm} \\
-%  \null\hfill #1 \\
+  \null\hfill{#1}\vspace{3mm} \\
   {
     \attachmentsize\centering\MakeUppercase{#2}\par
   }
@@ -453,6 +452,7 @@
 \newcommand{\numparagraph}{\theparagraph.}
 \newcommand{\numsubparagraph}{\thesubparagraph.}
 \newcommand{\section}[1]{
+%  \parskip5mm
   \ifx&#1&
     \ClassError
       {espd}
@@ -475,7 +475,7 @@
   \addcontentsline{toc}{subsection}{\numsubsection~#1}
 }
 \newcommand{\paragraph}[1]{  
-  \parskip1mm
+%  \parskip1mm
   \refstepcounter{paragraph}
   \writesubsection{\numparagraph~#1}
   \ifx&#1&\else
@@ -725,6 +725,102 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Лист регистрации изменений новый 
+\newcommand{\reglistnew}{ 
+	\setlength{\arrayrulewidth}{0.5mm} 
+	\hbox{%  	
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\multicolumn{10}{|c|}{\cell{184.5mm}{9.5mm}{\approvalsize \wordregistration}} \\
+			\hline
+			& \multicolumn{4}{c|}{\cell{73.5mm}{5.5mm}{\wordsheetnumber}} & & & & & \\
+			\cline{2-5}
+			\vcell{9.5mm}{24.5mm}{18.5mm}{\wordchanges} &
+			\cell{18.5mm}{18.5mm}{\wordchanged} & \cell{18.5mm}{18.5mm}{\wordreplaced} & \cell{18.5mm}{18.5mm}{\wordnew} & \cell{18.5mm}{18.5mm}{\wordannulled} & \vcell{18.5mm}{24.5mm}{18.5mm}{\wordsheetsindoc} & \vcell{18.5mm}{24.5mm}{18.5mm}{\worddocnumber} & \vcell{24.5mm}{24.5mm}{18.5mm}{\wordincldocanddate} & \vcell{17.5mm}{24.5mm}{18.5mm}{\wordsign} & \vcell{17.5mm}{24.5mm}{18.5mm}{\worddate} \\
+			\hline
+			\multicolumn{10}{c}{}\\[-3.7mm]
+%			\hline
+			\hhline{|=|=|=|=|=|=|=|=|=|=|} % горизонтальная двойная линия
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+			\cell{7.5mm}{7.5mm}{} & & & & & & & & & \\
+			\hline
+		\end{tabular}
+	}
+}
+
+\newcommand{\registrationnew}{
+	\newpage
+
+	% Основная таблица листа регистрации изменений
+	\reversemarginpar
+	\setlength{\marginparsep}{5.2mm}
+	\marginpar{
+		\vskip -5.0mm
+		\tabletextsize
+		%		\fontspec{GOST type A Bold Italic}
+		\renewcommand{\baselinestretch}{0.6}\selectfont  
+		\setlength{\tabcolsep}{0mm}				
+		\reglistnew
+		%\setlength{\tabcolsep}{\tabmarg}
+	} 
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Штамп для учета - оригинал
 %\newcommand{\stampleftfull}{
 %  \tabletextsize
@@ -844,6 +940,94 @@
 \end{titlepage}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Лист утверждения без подписей от заказчика
+\newcommand{\makeapprovalnocustomer}{
+	\begin{titlepage}
+		\reversemarginpar
+		%  \setlength{\marginparsep}{11.5mm}
+		\setlength{\marginparsep}{17mm}
+		%\marginpar{\vskip -2.5cm \hbox{\rotatebox{90}{\stampleftfull}}}
+		\marginpar{\vskip -2.5cm \hbox{\rotatebox{90}{\stampleftshort}}}
+		%\marginpar{\vskip -2.5cm \hbox{\rotatebox{90}{\stampleftonlyfirstapp}}}
+		%\marginpar{\vskip -2.5cm \hbox{\rotatebox{90}{\stampleftonlyrefnum}}}
+		\vskip -\baselineskip
+		\centering
+		\protectlinebreak  
+		\begin{tabular}{c c}
+			\parbox[t][2cm]{0.5\textwidth}{
+				~
+			} &
+			
+			\parbox[t][2cm]{0.5\textwidth}{
+				\centering\MakeUppercase{\wordapprove}\vskip 2mm\@chiefconstructorrank\vskip 1mm\onlyauthor{\@chiefconstructorname}
+			}
+		\end{tabular}
+		
+		\vskip 3cm
+		\titlesize{\MakeUppercase{\@title}}
+		\vskip 4mm
+		\normalsize\textbf{\@type}
+		\vskip 4mm
+		\normalsize{\MakeUppercase{\wordapproval}}
+		\vskip 4mm
+		\normalsize{\fullcodeapp}
+		\vskip \fill
+		\begin{tabular}{c c}
+			\parbox[t]{0.45\textwidth}{\raggedright
+				~
+%				% левая колонка:
+%				\if& \@headofdepartmentname &	    
+%				%&
+%				\else
+%				\titleauthor{\@fromcustomername}{\@fromcustomerrank}%} &                       	
+%				\fi
+			}
+			
+			\parbox[t]{0.4\textwidth}{\raggedright    
+				% правая колонка:
+				
+				\if& \@headofdepartmentname &	    
+				\else
+				\titleauthor{\@headofdepartmentname}{\@headofdepartmentrank}    	
+				\fi
+				
+				\if& \@deputyofchiefconstructorname &	    
+				\else
+				\titleauthor{\@deputyofchiefconstructorname}{\@deputyofchiefconstructorrank} 
+				\fi
+				
+				\if& \@headoflaboratoryname &	
+				\else
+				\titleauthor{\@headoflaboratoryname}{\@headoflaboratoryrank} 
+				\fi
+				
+				\if& \@developername &	
+				\else
+				\titleauthor{\@developername}{\@developerrank} 	
+				\fi
+				
+				\if&\@authorname&
+				\else
+				\if&\@authori\@authorii\@authoriii\@authoriv\@authorv\@authorranki\@authorrankii\@authorrankiii\@authorrankiv\@authorrankv&
+				\wordperformer\\\onlyauthor{\@authorname}
+				\else
+				\wordperformers\\\onlyauthor{\@authori}\onlyauthor{\@authorii}\onlyauthor{\@authoriii}\onlyauthor{\@authoriv}\onlyauthor{\@authorv}
+				\fi
+				\fi
+				
+				\if& \@normocontrollername &	
+				\else
+				\titleauthor{\@normocontrollername}{\@normocontrollerrank}
+				\fi
+				
+			}
+		\end{tabular}
+		\vskip \fill
+		\@year
+		\vskip 5mm
+	\end{titlepage}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Титульный лист
 \newcommand{\maketitle}{
 \begin{titlepage}
@@ -907,9 +1091,14 @@
     \fi    
     \includegraphics[width=#3\textwidth]{#4} \nopagebreak
     \\\vspace{2mm}
+%	\vspace{2mm}
+%    \\
+%    \noindent
+%\nopagebreak
     \ifnum\getnum{lastillustration}=1
 	    \picturetextsize\centering{#2}
     \else
+    	
       \picturetextsize\centering{\wordimage~\arabic{illustration}.~{#2}}
     \fi
     \ifx&#5&\else
@@ -963,6 +1152,7 @@
 \def\@biblabel#1{#1.}
 \newenvironment{thebibliography}[1]
 {
+	\newpage
   \writesection{\wordbibliography}
   \list{\@biblabel{\@arabic\c@enumiv}}
     {\settowidth\labelwidth{\@biblabel{#1}}
@@ -1116,6 +1306,7 @@
 %	\setlength{\arrayrulewidth}{0.5mm} 
 %	\begin{tabular}{|p{180mm}|}\hline\\\hline\end{tabular}% чистая строка
 %	}
+%
 	{%
 	\begin{longtable}[c]{|>{\centering}m{25mm}|>{\raggedright}m{147.5mm}|}
 		\hline
@@ -1146,12 +1337,14 @@
 		\hline
 	\end{longtable}
 	}
-	\hfill{10cm}
+%	\hfill{10cm}
+	\vspace{11.57cm}
 	{%
-		\begin{longtable}[c]{|>{\raggedright}m{75mm}|>{\centering}m{45mm}|>{\centering}m{22mm}|>{\centering}m{22mm}|}
+		\begin{longtable}[c]{|>{\raggedright}m{75mm}|>{\centering}m{50mm}|>{\centering}m{19.5mm}|>{\centering}m{19.5mm}|}
 			\hline
-			Информационно-удостоверяющий лист & {\fullcode} & \multirow{2}{*}{Лист}\\ \cline{1-1}{1} & \multirow{2}{*}{Листов}\\{1} \tabularnewline
-%			Информационно-удостоверяющий лист & {\fullcode} & ~ & ~ \tabularnewline
+			\multirow{2}*{Информационно-удостоверяющий лист} & \multirow{2}*{\fullcode-УЛ} & Лист & Листов \tabularnewline
+			\cline{3-4}
+			~ & ~ & 1 & 1 \tabularnewline			
 			\hline
 		\end{longtable}
 	}

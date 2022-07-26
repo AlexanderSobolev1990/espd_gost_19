@@ -22,6 +22,8 @@
 %\usepackage{fontenc}
 %\usepackage{fancyvrb}
 \usepackage{amssymb}
+%\usepackage{subfig}
+%\usepackage{minipage}
 
 \graphicspath{ {./иллюстрации/} }
 
@@ -191,28 +193,27 @@
 \widowpenalty=10000 % "висячих" строк
 \righthyphenmin=200 % Избавляемся
 {\sloppy	            % от переносов слов
-
-\makeapproval % ЛУ
-\maketitle % Титульник
+%
+%\makeapproval % ЛУ
+%%\makeapprovalnocustomer % ЛУ без согласоавания
+%\maketitle % Титульник
 %\include{аннотация}
 %\tableofcontents % Содержание
-%%
-%%% Дальше пошли разделы
+%%%
+%%%% Дальше пошли разделы
 %\include{оформление_разделов} 
 %\include{оформление_перечислений} 
-%\include{оформление_иллюстраций} 
+\include{оформление_иллюстраций} 
 %\include{оформление_формул} 
-\include{оформление_таблиц} 
-
-\iulist
-
+%\include{оформление_таблиц} 
 %\include{оформление_листингов}
+%\iulist % Информационно-удостоверяющий лист
 %\bibliography{список_литературы}
 %\include{термины}
 %\include{аббревиатуры}
-%\include{приложение_1}
+\include{приложение_1}
 %\include{приложение_2}
-%
-\registration
+%%
+\registrationnew
 }
 \end{document}
