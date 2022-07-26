@@ -1,3 +1,9 @@
+/bin
+/build
+/doc*
+/doc*
+CMakeLists.txt.user
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -19,10 +25,10 @@
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
-# *.pdf
+## # *.pdf
 
 ## Generated if empty string is given at "Please type another file name for output:"
-.pdf
+## .pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
@@ -162,7 +168,7 @@ _minted*
 
 # pdfpcnotes
 *.pdfpc
-*.pdf
+#*.pdf
 
 # sagetex
 *.sagetex.sage
