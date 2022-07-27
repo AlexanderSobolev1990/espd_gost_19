@@ -1,7 +1,5 @@
 /bin
 /build
-/doc*
-/doc*
 CMakeLists.txt.user
 
 ## Core latex/pdflatex auxiliary files:

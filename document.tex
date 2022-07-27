@@ -25,7 +25,7 @@
 %\usepackage{subfig}
 %\usepackage{minipage}
 
-\graphicspath{ {./иллюстрации/} }
+\graphicspath{ {./images/} }
 
 \bibliographystyle{gost2008}
 \setmainfont{Times New Roman}
@@ -197,22 +197,22 @@
 \makeapproval % ЛУ
 %\makeapprovalnocustomer % ЛУ без согласоавания
 \maketitle % Титульник
-\include{аннотация}
+\input{document/аннотация}
 \tableofcontents % Содержание
-%%
-%%% Дальше пошли разделы
-\include{оформление_разделов} 
-\include{оформление_перечислений} 
-\include{оформление_иллюстраций} 
-\include{оформление_формул} 
-\include{оформление_таблиц} 
+%%%
+%%%% Дальше пошли разделы
+\input{document/оформление_разделов} 
+\input{document/оформление_перечислений} 
+\input{document/оформление_иллюстраций} 
+\input{document/оформление_формул} 
+\input{document/оформление_таблиц} 
 %\include{оформление_листингов}
 \iulist % Информационно-удостоверяющий лист
-\bibliography{список_литературы}
-\include{термины}
-\include{аббревиатуры}
-\include{приложение_1}
-\include{приложение_2}
+\bibliography{bibliography}
+\input{document/термины}
+\input{document/аббревиатуры}
+\input{document/приложение_1}
+\input{document/приложение_2}
 %%
 \registrationnew
 }
