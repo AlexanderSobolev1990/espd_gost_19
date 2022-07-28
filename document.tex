@@ -24,6 +24,8 @@
 \usepackage{amssymb}
 %\usepackage{subfig}
 %\usepackage{minipage}
+%\usepackage{enumitem}
+\usepackage{xstring}
 
 \graphicspath{ {./images/} }
 
@@ -192,7 +194,7 @@
 \clubpenalty=10000  % Это костыль против
 \widowpenalty=10000 % "висячих" строк
 \righthyphenmin=200 % Избавляемся
-{\sloppy	            % от переносов слов
+{\sloppy	        % от переносов слов
 %
 \makeapproval % ЛУ
 %\makeapprovalnocustomer % ЛУ без согласоавания
@@ -205,7 +207,7 @@
 \input{document/оформление_иллюстраций} 
 \input{document/оформление_формул} 
 \input{document/оформление_таблиц} 
-%\input{{document/оформление_листингов}
+\input{document/оформление_листингов}
 \iulist % Информационно-удостоверяющий лист
 \bibliography{bibliography}
 \input{document/термины}

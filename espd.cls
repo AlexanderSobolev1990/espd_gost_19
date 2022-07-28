@@ -47,6 +47,11 @@
 \widowpenalty=10000 % "висячих" строк
 \righthyphenmin=200 % Избавляемся
 \sloppy	            % от переносов слов
+
+\newcommand{\matr}[1]{\mathbf{#1}}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Создает переменную, задается \cmd{val}, возвращается \@cmd
 % \var{cmd}
@@ -1145,6 +1150,19 @@
 %
 \def\@listi {\leftmargin 0mm}
 \def\@listii {\leftmargin 10mm}
+
+% Удаление пробела для формул
+\newcommand{\formuladelspace}{\vspace{-\abovedisplayskip}}
+
+% Перечисление для формул
+\newcommand{\formulalist}[1]%
+{%
+	\setlength{\labelsep}{3.5mm}%
+	\setlength{\labelwidth}{-10mm}%
+	\begin{itemize}
+		{#1}
+	\end{itemize}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Библиография
 \def\url{\texttt}
