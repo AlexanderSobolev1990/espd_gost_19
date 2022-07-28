@@ -1151,10 +1151,8 @@
 \def\@listi {\leftmargin 0mm}
 \def\@listii {\leftmargin 10mm}
 
-% Удаление пробела для формул
-\newcommand{\formuladelspace}{\vspace{-\abovedisplayskip}}
 
-% Перечисление для формул
+% Перечисление для формул c вравниванием отступов иерархии вложенности
 \newcommand{\formulalist}[1]%
 {%
 	\setlength{\labelsep}{3.5mm}%
@@ -1220,6 +1218,15 @@
 	\setlength{\abovedisplayshortskip}{0pt}%
 	\setlength{\belowdisplayshortskip}{0pt}%
 }%
+
+% Удаление пробела для формул
+%\newcommand{\formuladelspace}{\vspace{-\abovedisplayskip}}
+\newcommand{\formuladelspace}%
+{%
+	\vspace{-5mm}%
+}%
+%\def\formuladelspace/\vspace{-5mm}
+
 %
 %\setlength\LTleft{0pt plus \textwidth}
 %\setlength\LTright{0pt plus \textwidth}
